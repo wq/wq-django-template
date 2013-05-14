@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html manifest="{{ project_name }}.appcache">
+  <head>
+    <title>{{ project_name }} Project</title>
+    {% templatetag openvariable %}>head{% templatetag closevariable %}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page">
+      <div data-role="header">
+        <h1>{{ project_name }} Project</h1>
+      </div>
+      <div data-role="content">
+        <p>Hello, world!</p>
+        <p>Version {% templatetag openvariable %}version{% templatetag closevariable %}</p>
+      <div>
+    </div>
+  </body>
+</html>

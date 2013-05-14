@@ -1,0 +1,43 @@
+{
+    "optimize": {
+        "appDir": ".",
+        "baseUrl": "js",
+        "dir":     "../htdocs-build",
+        "modules": [
+            {
+                "name": "{{ project_name }}"
+            }
+        ],
+        "paths": {
+            "../config": "empty:"
+        }
+    },
+    "setversion": {
+       "filename": "../version.txt",
+       "jsout": "js/version.js"
+    },
+    "collectjson": [
+        {
+            "paths": ["../templates"],
+            "type": "html",
+            "output": "js/templates.js",
+            "json": {
+                "indent": 4
+            },
+            "jsonp": "define"
+        }
+    ],
+    "appcache": {
+        "name": "{{ project_name }}.appcache",
+        "css":  "css/{{ project_name }}.css",
+        "cache": [
+            "js/wq/lib/require.js"
+        ],
+        "network": [
+            "*",
+            "http://*",
+            "https://*"
+        ],
+        "fallback": [""]
+    }
+}
