@@ -1,0 +1,17 @@
+{{#multiple}}
+<div data-role="footer">
+  {{#previous}}
+  <a href="{{previous}}" data-icon="arrow-l" data-iconpos="left"
+    data-direction="reverse" class="ui-btn-left">
+    Prev {{per_page}}
+  </a>
+  {{/previous}}
+  <h3>Page {{page}} of {{pages}}</h3>
+  {{#next}}
+  <a href="{{next}}" data-icon="arrow-r" data-iconpos="right"
+     class="ui-btn-right">
+    Next {{per_page}}
+  </a>
+  {{/next}}
+</div>
+{{/multiple}}
