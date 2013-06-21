@@ -1,17 +1,17 @@
-{{#multiple}}
+{% templatetag openvariable %}#multiple{% templatetag closevariable %}
 <div data-role="footer">
-  {{#previous}}
-  <a href="{{previous}}" data-icon="arrow-l" data-iconpos="left"
+  {% templatetag openvariable %}#previous{% templatetag closevariable %}
+  <a href="{% templatetag openvariable %}previous{% templatetag closevariable %}" data-icon="arrow-l" data-iconpos="left"
     data-direction="reverse" class="ui-btn-left">
-    Prev {{per_page}}
+    Prev {% templatetag openvariable %}per_page{% templatetag closevariable %}
   </a>
-  {{/previous}}
-  <h3>Page {{page}} of {{pages}}</h3>
-  {{#next}}
-  <a href="{{next}}" data-icon="arrow-r" data-iconpos="right"
+  {% templatetag openvariable %}/previous{% templatetag closevariable %}
+  <h3>Page {% templatetag openvariable %}page{% templatetag closevariable %} of {% templatetag openvariable %}pages{% templatetag closevariable %}</h3>
+  {% templatetag openvariable %}#next{% templatetag closevariable %}
+  <a href="{% templatetag openvariable %}next{% templatetag closevariable %}" data-icon="arrow-r" data-iconpos="right"
      class="ui-btn-right">
-    Next {{per_page}}
+    Next {% templatetag openvariable %}per_page{% templatetag closevariable %}
   </a>
-  {{/next}}
+  {% templatetag openvariable %}/next{% templatetag closevariable %}
 </div>
-{{/multiple}}
+{% templatetag openvariable %}/multiple{% templatetag closevariable %}
