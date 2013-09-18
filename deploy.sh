@@ -17,4 +17,4 @@ rm -rf htdocs/;
 mv -i htdocs-build/ htdocs;
 
 # Restart Django
-touch db/wsgi.py
+touch db/{{project_name}}/wsgi.py

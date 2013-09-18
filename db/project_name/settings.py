@@ -1,4 +1,4 @@
-# Django settings for {{ project_name }}.db project.
+# Django settings for {{ project_name }} project.
 
 # Based on default project template settings:
 # https://github.com/django/django/blob/master/django/conf/project_template/project_name/settings.py
@@ -83,10 +83,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = '{{ project_name }}.db.urls'
+ROOT_URLCONF = '{{ project_name }}.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = '{{ project_name }}.db.wsgi.application'
+WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 # TEMPLATE_DIRS is defined in local_settings.py
 
@@ -123,8 +123,11 @@ from wq.db.rest.settings import (
     ANONYMOUS_PERMISSIONS,
     SRID,
     DEFAULT_AUTH_GROUP,
-    FORBIDDEN_APPS
+    FORBIDDEN_APPS,
+    DISAMBIGUATE
 )
+
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

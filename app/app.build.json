@@ -3,6 +3,8 @@
         "appDir": ".",
         "baseUrl": "js",
         "dir":     "../htdocs-build",
+        "skipDirOptimize": true,
+
         "modules": [
             {
                 "name": "{{ project_name }}"
