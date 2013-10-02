@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Exit on error
+set -e
+
 # Build javascript with wq.app
 cd app;
 wq build $1;
