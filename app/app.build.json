@@ -4,6 +4,7 @@
         "baseUrl": "js",
         "dir":     "../htdocs-build",
         "skipDirOptimize": true,
+        "removeCombined": true,
 
         "modules": [
             {
