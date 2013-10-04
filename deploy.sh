@@ -13,7 +13,9 @@ sed -i "s/{{project_name}}.js/{{project_name}}.js?v="$1"/" htdocs-build/{{projec
 sed -i "s/{{project_name}}.css/{{project_name}}.css?v="$1"/" htdocs-build/{{project_name}}.appcache
 
 # Preserve Django's static files (e.g. admin)
-cp -a htdocs/static htdocs-build/static
+if [ -d htdocs/static ]; then
+    cp -a htdocs/static htdocs-build/static
+fi;
 
 # Replace existing htdocs with new version
 rm -rf htdocs/;
