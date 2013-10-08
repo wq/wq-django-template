@@ -1,8 +1,15 @@
-define(["../config"],
-function(config) {
+define(["../config", "version"],
+function(config, version) {
 
-config.defaults = {};
-config.transitions = {};
+config.defaults = {
+    'version': version
+};
+
+config.transitions = {
+    'default': "slide",
+    'save': "flip"
+};
+
 return config;
 
 });
