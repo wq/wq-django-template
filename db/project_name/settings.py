@@ -124,7 +124,6 @@ from wq.db.rest.settings import (
     ANONYMOUS_PERMISSIONS,
     SRID,
     DEFAULT_AUTH_GROUP,
-    FORBIDDEN_APPS,
     DISAMBIGUATE
 )
 
