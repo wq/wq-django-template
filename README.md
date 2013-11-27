@@ -7,5 +7,5 @@ Usage:
 
 ```sh
 pip install wq
-django-admin.py startproject [projectname] --template https://github.com/wq/django-wq-template/archive/master.zip --extension py,json,conf,html,sh
+django-admin.py startproject [projectname] --template https://github.com/wq/django-wq-template/archive/master.zip --extension py,json,conf,html,sh,js
 ```

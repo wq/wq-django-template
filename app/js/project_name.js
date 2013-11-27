@@ -1,6 +1,9 @@
-require(['wq/app', 'config', 'templates'],
-function(app, config, templates) {
-
-app.init(config, templates);
-
+requirejs.config({
+    'baseUrl': 'lib',
+    'paths': {
+        '{{ project_name }}': '../{{ project_name }}',
+        'db': '../../'
+    }
 });
+
+requirejs(['{{ project_name }}/main']);

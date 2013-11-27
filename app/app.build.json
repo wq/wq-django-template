@@ -1,7 +1,7 @@
 {
     "optimize": {
         "appDir": ".",
-        "baseUrl": "js",
+        "baseUrl": "js/lib",
         "dir":     "../htdocs-build",
         "skipDirOptimize": true,
         "removeCombined": true,
@@ -12,18 +12,19 @@
             }
         ],
         "paths": {
-            "../config": "empty:"
+            "{{ project_name }}": "../{{ project_name }}",
+            "db": "empty:"
         }
     },
     "setversion": {
        "filename": "../version.txt",
-       "jsout": "js/version.js"
+       "jsout": "js/{{ project_name }}/version.js"
     },
     "collectjson": [
         {
             "paths": ["../templates"],
             "type": "html",
-            "output": "js/templates.js",
+            "output": "js/{{ project_name }}/templates.js",
             "json": {
                 "indent": 4
             },
@@ -34,7 +35,7 @@
         "name": "{{ project_name }}.appcache",
         "css":  "css/{{ project_name }}.css",
         "cache": [
-            "js/wq/lib/require.js"
+            "js/lib/require.js"
         ],
         "network": [
             "*",

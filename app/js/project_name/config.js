@@ -1,4 +1,4 @@
-define(["../config", "version"],
+define(["db/config", "./version"],
 function(config, version) {
 
 config.defaults = {
