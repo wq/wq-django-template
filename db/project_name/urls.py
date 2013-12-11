@@ -9,6 +9,6 @@ app.router.add_page('index', {'url': ''})
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'',        include('social_auth.urls')),
-    url(r'^',       include(app.router.urls))
+    url(r'', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^', include(app.router.urls))
 )

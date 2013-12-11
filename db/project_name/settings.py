@@ -92,25 +92,24 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
+    'social.apps.django_app.default',
+
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    # 'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'django.contrib.admin',
     'django.contrib.gis',
 
     'south',
     'rest_framework',
-    'social_auth',
 
     'wq.db.patterns.identify',
     'wq.db.rest.auth',
 
 )
 
-# wq.db Recommended settings for Django, rest_framework, and social_auth
+# wq.db Recommended settings for Django, rest_framework, and social auth
 from wq.db.rest.settings import (
     TEMPLATE_LOADERS,
     TEMPLATE_CONTEXT_PROCESSORS,
@@ -125,6 +124,12 @@ from wq.db.rest.settings import (
     SRID,
     DEFAULT_AUTH_GROUP,
     DISAMBIGUATE
+)
+
+# For more options see http://psa.matiasaguirre.net/docs/backends/
+AUTHENTICATION_BACKENDS = (
+    'social.backends.google.GoogleOpenId',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -159,6 +164,6 @@ LOGGING = {
 }
 
 try:
-   from local_settings import *
+    from local_settings import *
 except ImportError:
-   pass
+    pass
