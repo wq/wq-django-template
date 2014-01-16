@@ -1,5 +1,5 @@
 requirejs.config({
-    'baseUrl': 'lib',
+    'baseUrl': '/js/lib',
     'paths': {
         '{{ project_name }}': '../{{ project_name }}',
         'db': '../../'
