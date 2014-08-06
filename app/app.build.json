@@ -13,18 +13,19 @@
         ],
         "paths": {
             "{{ project_name }}": "../{{ project_name }}",
+            "data": "../data",
             "db": "empty:"
         }
     },
     "setversion": {
        "filename": "../version.txt",
-       "jsout": "js/{{ project_name }}/version.js"
+       "jsout": "js/data/version.js"
     },
     "collectjson": [
         {
             "paths": ["../templates"],
             "type": "html",
-            "output": "js/{{ project_name }}/templates.js",
+            "output": "js/data/templates.js",
             "json": {
                 "indent": 4
             },
