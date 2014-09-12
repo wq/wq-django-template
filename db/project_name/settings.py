@@ -36,7 +36,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.gis',
 
-    'south',
     'rest_framework',
 
     'wq.db.patterns.identify',
