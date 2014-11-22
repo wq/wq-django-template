@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'rest_framework',
 
     'wq.db.patterns.identify',
+    'wq.db.rest',
     'wq.db.rest.auth',
 
 )
