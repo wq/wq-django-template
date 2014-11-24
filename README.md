@@ -6,7 +6,7 @@ This is the recommended Django project template for projects utilizing the [wq f
 ### Usage
 
 ```sh
-pip install wq
+pip3 install wq
 wq-start <projectname> [directory]
 ```
 
