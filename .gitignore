@@ -1,3 +1,8 @@
 *.pyc
-local_settings.py
-htdocs
+*.egg-info
+*.egg
+*.sw?
+build
+dist
+README.rst
+wq/
