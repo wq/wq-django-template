@@ -49,7 +49,6 @@ def list_package_data(root):
     """
     paths = []
     for base, dirs, files in os.walk(root):
-        base = base.replace('wq' + os.sep, '', 1)
         paths.extend([os.path.join(base, name) for name in files])
     return paths
 
