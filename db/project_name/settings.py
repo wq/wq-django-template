@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'wq.db.rest',
     'wq.db.rest.auth',
 
+    'exampleapp',
 )
 
 MIDDLEWARE_CLASSES = (

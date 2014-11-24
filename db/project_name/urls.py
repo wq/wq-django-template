@@ -5,7 +5,6 @@ admin.autodiscover()
 
 from wq.db.rest import app
 app.autodiscover()
-app.router.add_page('index', {'url': ''})
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
