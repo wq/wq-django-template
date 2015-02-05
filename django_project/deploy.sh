@@ -22,7 +22,7 @@ if [ -d htdocs/static ]; then
 fi;
 
 # Replace existing htdocs with new version
-rm -rf htdocs/;
+rm -rf htdocs;
 mv -i htdocs-build/ htdocs;
 
 # Restart Django
