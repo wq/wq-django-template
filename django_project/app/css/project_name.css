@@ -1,1 +1,3 @@
-@import url("lib/jquery.mobile.css");
+@import url("themes.css");
+@import url("lib/jquery.mobile.icons.css");
+@import url("lib/jquery.mobile.structure.css");

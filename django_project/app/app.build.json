@@ -31,6 +31,10 @@
             "jsonp": "define"
         }
     ],
+    "scss": {
+        "indir": "scss",
+        "outdir": "css"
+    },
     "appcache": {
         "name": "{{ project_name }}.appcache",
         "css":  "css/{{ project_name }}.css",

@@ -1,0 +1,17 @@
+@import "compass/css3";
+@import "wq/jquery-mobile";
+@import "wq/swatches";
+
+@include jquery-mobile-gray-theme(
+    $theme: a
+);
+
+@include jquery-mobile-black-theme(
+    $theme: b
+);
+
+$font: sans-serif;
+
+@include jquery-mobile-global(
+    $font: $font
+);
