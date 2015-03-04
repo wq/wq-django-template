@@ -1,0 +1,47 @@
+# Optimize with r.js
+optimize:
+    appDir: .
+    baseUrl: js/lib
+    dir: ../htdocs-build
+    skipDirOptimize: true
+    removeCombined: true
+    modules:
+         -
+            name: "{{ project_name }}"
+    paths:
+        {{ project_name }}: "../{{ project_name }}"
+        data: ../data
+
+# Generate AMD-wrapped JSON fixtures
+collectjson:
+     # Mustache Templates
+     -
+        paths:
+             - ../templates
+        type: html
+        output: js/data/templates.js
+        json:
+            indent: 4
+        jsonp: define
+
+# Compile jQuery Mobile themes from SCSS
+scss:
+    indir: scss
+    outdir: css
+
+# Update version.txt & JS module
+setversion:
+    filename: ../version.txt
+    jsout: js/data/version.js
+
+# Generate Application Cache manifest
+appcache:
+    name: "{{ project_name }}.appcache"
+    css: "css/{{ project_name }}.css"
+    cache:
+         - js/lib/require.js
+    network:
+         - "*"
+         - "http://*"
+         - "https://*"
+    fallback: []

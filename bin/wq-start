@@ -24,5 +24,5 @@ call_command(
     project_name,
     destination,
     template=template,
-    extensions=["py", "json", "conf", "html", "sh", "js"],
+    extensions=["py", "yml", "conf", "html", "sh", "js"],
 )
