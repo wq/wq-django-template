@@ -38,6 +38,7 @@ setversion:
 appcache:
     name: "{{ project_name }}.appcache"
     css: "css/{{ project_name }}.css"
+    css-ignore: "css/lib/images/icons-png/.*"
     cache:
          - js/lib/require.js
     network:
