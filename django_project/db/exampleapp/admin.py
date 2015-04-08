@@ -1,5 +1,6 @@
-from wq.db.patterns import admin
+from django.contrib import admin
+from wq.db.patterns import admin as patterns
 from .models import Example
 
 
-admin.site.register(Example, admin.IdentifiedModelAdmin)
+admin.site.register(Example, patterns.IdentifiedModelAdmin)
