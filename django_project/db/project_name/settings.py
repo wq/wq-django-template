@@ -26,10 +26,10 @@ ALLOWED_HOSTS = ["{{ project_name }}"]
 # Application definition
 
 INSTALLED_APPS = (
+    'django.contrib.contenttypes',
     'django.contrib.auth',
     'social.apps.django_app.default',
 
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
