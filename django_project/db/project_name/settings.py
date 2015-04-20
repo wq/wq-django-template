@@ -55,7 +55,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 # wq: Recommended settings for Django, rest_framework, and social auth
-from wq.db.rest.settings import (
+from wq.db.default_settings import (
     TEMPLATE_LOADERS,
     TEMPLATE_CONTEXT_PROCESSORS,
     SESSION_COOKIE_HTTPONLY,
@@ -64,7 +64,7 @@ from wq.db.rest.settings import (
 )
 
 # wq: Recommended settings unique to wq.db
-from wq.db.rest.settings import (
+from wq.db.default_settings import (
     ANONYMOUS_PERMISSIONS,
     SRID,
     DEFAULT_AUTH_GROUP,
