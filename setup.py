@@ -65,7 +65,7 @@ for folder in TEMPLATES:
 
 setup(
     name='wq.start',
-    version='0.7.2',
+    version='0.8.0',
     author='S. Andrew Sheppard',
     author_email='andrew@wq.io',
     url='http://wq.io/',
@@ -78,7 +78,8 @@ setup(
     namespace_packages=['wq'],
     package_data={'wq.start': TEMPLATE_DATA},
     install_requires=[
-        'wq.app>=0.7.3',
+        'wq.app>=0.7.4',
+        'wq.db>=0.8.0',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
