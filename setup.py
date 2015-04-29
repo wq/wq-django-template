@@ -72,7 +72,7 @@ setup(
     license='MIT',
     description=LONG_DESCRIPTION.strip(),
     long_description=parse_markdown_readme(),
-    scripts=['bin/wq-start'],
+    entry_points={'wq':'wq.start=wq.start'},
     packages=['wq.start'],
     package_dir={'wq.start': '.'},
     namespace_packages=['wq'],
@@ -80,6 +80,7 @@ setup(
     install_requires=[
         'wq.app>=0.7.4',
         'wq.db>=0.8.0',
+        'wq.core',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
