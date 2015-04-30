@@ -16,7 +16,16 @@ if os.sep not in template:
 @click.argument("destination", required=False)
 def start(project_name, destination):
     """
-    Start a new project with wq.app and wq.db
+    Start a new project with wq.app and wq.db.  A new Django project will be
+    created from a wq-specific template.  After running this command, you may
+    want to do the following:
+
+    \b
+        chmod +x deploy.sh db/manage.py
+        sudo chown www-data media/
+        cd app; wq init
+
+    See https://wq.io/docs/setup for more tips on getting started with wq.
     """
     call_command(
         'startproject',
