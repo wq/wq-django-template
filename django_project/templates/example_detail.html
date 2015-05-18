@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% verbatim %}
+<!--
+NOTE: This template is only meant to provide a bootstrap to help new projects
+get up and running with wq.  Please throw this out and replace it with your own
+interesting and unique designs, styles and layouts.  The sky is the limit!
+-->
+<html>
+  <head>
+    <title>{{label}}</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{label}}</h1>
+        <a href="/examples/{{id}}/edit" data-icon="edit" data-transition="flip">
+          Edit
+        </a>
+      </div>
+      <div role="main" class="ui-content">
+        <h1>{{label}}</h1>
+        <table>
+          <tr><th>Name</th><td>{{name}}</td></tr>
+          <tr><th>Description</th><td>{{description}}</td></tr>
+        </table>
+        <h3>Identifiers</h3>
+        <table>
+        {{#identifiers}}
+          <tr>
+            <th>
+              {{#authority_id}}{{authority_label}}{{/authority_id}}
+              {{^authority_id}}Name{{/authority_id}}
+            </th>
+            <td>
+              {{#url}}<a href="{{url}}" rel="external">{{/url}}
+              {{name}}
+              {{#url}}</a>{{/url}}
+            </td>
+        {{/identifiers}}
+        {{^identifiers}}
+          <tr><td>No Identifiers Found</td></tr>
+        {{/identifiers}}
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+{% endverbatim %}

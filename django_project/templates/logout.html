@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% verbatim %}
+<!--
+NOTE: This template is only meant to provide a bootstrap to help new projects
+get up and running with wq.  Please throw this out and replace it with your own
+interesting and unique designs, styles and layouts.  The sky is the limit!
+-->
+<html>
+  <head>
+    <title>Log Out</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page">
+      <div data-role="header">
+        {{>home}}
+        <h1>Log Out</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <p>Logged out.</p>
+        <a href="/login" data-role="button">
+          Log In Again
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
+{% endverbatim %}

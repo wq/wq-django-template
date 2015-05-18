@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+
+<!--
+NOTE: This template is only meant to provide a bootstrap to help new projects
+get up and running with wq.  Please throw this out and replace it with your own
+interesting and unique designs, styles and layouts.  The sky is the limit!
+-->
 <html manifest="{{ project_name }}.appcache">
   <head>
     <title>{{ project_name }} Project</title>
@@ -12,7 +18,12 @@
       <div role="main" class="ui-content">
         <p>Hello, world!</p>
         <p>Version {% templatetag openvariable %}version{% templatetag closevariable %}</p>
+        <ul data-role="listview">
+          <li><a href="/login">Log In</a></li>
+          <li><a href="/examples">Example List</a></li>
+        </ul>
       </div>
+      <div id="index-map" style="height:400px"></div>
     </div>
   </body>
 </html>

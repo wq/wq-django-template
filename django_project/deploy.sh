@@ -3,9 +3,8 @@
 # Exit on error
 set -e
 
-# Dump wq configuration object to file (requires Django 1.7)
-CONFIG=`db/manage.py dump_config`
-echo "define($CONFIG);" > app/js/data/config.js
+# Dump wq configuration object to file
+db/manage.py dump_config --format amd > app/js/data/config.js
 
 # Build javascript with wq.app
 cd app;

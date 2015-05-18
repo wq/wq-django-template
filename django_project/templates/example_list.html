@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% verbatim %}
+<!--
+NOTE: This template is only meant to provide a bootstrap to help new projects
+get up and running with wq.  Please throw this out and replace it with your own
+interesting and unique designs, styles and layouts.  The sky is the limit!
+-->
+<html>
+  <head>
+    <title>Example List</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page" data-wq-sync-refresh="true">
+      <div data-role="header">
+        {{>home}}
+        <h1>Example List</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <ul data-role="listview" data-filter="true" data-inset="true">
+        {{#list}}
+        <li><a href="/examples/{{id}}">{{label}}</a></li>
+        {{/list}}
+        {{^list}}
+        <li>No Examples Found</li>
+        {{/list}}
+        {{#unsynced}}
+        <li data-role="list-divider">Outbox</li>
+        {{#unsyncedItems}}
+        <li data-icon="{{#error}}alert{{/error}}{{^error}}refresh{{/error}}">
+          <a href="/outbox/{{id}}/edit">{{data.name}}</a>
+        </li>
+        {{/unsyncedItems}}
+        {{/unsynced}}
+        <li data-icon="plus" data-theme="b">
+          <a href="/examples/new">Add Example</a>
+        </li>
+      </div>
+    </div>
+  </body>
+</html>
+{% endverbatim %}

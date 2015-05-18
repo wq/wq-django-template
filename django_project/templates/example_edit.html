@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% verbatim %}
+<!--
+NOTE: This template is only meant to provide a bootstrap to help new projects
+get up and running with wq.  Please throw this out and replace it with your own
+interesting and unique designs, styles and layouts.  The sky is the limit!
+-->
+<html>
+  <head>
+    <title>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} Example</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} Example</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <form action="/examples/{{id}}" method="post" data-ajax="false"
+            data-wq-json="true"{{#outbox_id}} data-wq-outbox-id="{{outbox_id}}"{{/outbox_id}}>
+          {{>csrf}}
+          {{#id}}
+          <input type=hidden name="_method" value="PUT">
+          {{/id}}
+          <ul data-role="listview">
+            <li>
+              <label for="Name">Name</label>
+              <input name="name" id="name" value="{{name}}">
+              <p class="error example-name-errors"></p>
+            </li>
+            <li>
+              <label for="description">Description</label>
+              <textarea name="description" id="description">{{description}}</textarea>
+              <p class="error example-description-errors"></p>
+            </li>
+            <li data-role="list-divider">Identifiers</li>
+            {{#identifiers}}
+            <li>
+              {{#id}}
+              <input type="hidden" name="identifiers[{{@index}}][id]" value="{{id}}">
+              <input type="hidden" name="identifiers[{{@index}}][is_primary]" value="{{is_primary}}">
+              <input type="hidden" name="identifiers[{{@index}}][slug]" value="{{slug}}">
+              {{/id}}
+              <input type="hidden" name="identifiers[{{@index}}][authority_id]" value="{{authority_id}}">
+              <label for="identifier-{{@index}}-name">
+                {{#authority_id}}{{authority_label}}{{/authority_id}}
+                {{^authority_id}}Name{{/authority_id}}
+              </label>
+              <input name="identifiers[{{@index}}][name]" id="identifier-{{@index}}-name" value="{{name}}">
+            </li>
+            {{/identifiers}}
+            {{^identifiers}}
+            <li>
+              <label for="identifier-0-name">Name</label>
+              <input name="identifiers[0][name]" id="identifier-0-name">
+            </li>
+            {{/identifiers}}
+            <li>
+              <div class="ui-grid-a">
+                <div class="ui-block-a">
+                  <a href="/examples/{{id}}" data-role="button" data-icon="back" data-direction="reverse">
+                    Back
+                  </a>
+                </div>
+                <div class="ui-block-b">
+                  <button type="submit" data-icon="check" data-theme="b">
+                    Submit
+                  </a>
+                </div>
+              </div>
+              <p class="error example-errors"></p>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+{% endverbatim %}

@@ -7,4 +7,4 @@ rest.router.register_model(
     Example,
     serializer=patterns.IdentifiedModelSerializer
 )
-rest.router.add_page('index', {'url': ''})
+rest.router.add_page('index', {'url': '', 'map': True})
