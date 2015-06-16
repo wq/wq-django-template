@@ -65,7 +65,7 @@ for folder in TEMPLATES:
 
 setup(
     name='wq.start',
-    version='0.8.1',
+    version='0.8.2',
     author='S. Andrew Sheppard',
     author_email='andrew@wq.io',
     url='http://wq.io/',
