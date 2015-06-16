@@ -8,6 +8,9 @@ rest.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('social.apps.django_app.urls', namespace='social')),
+
+    # Uncomment to enable python-social-auth URLs
+    # url(r'', include('social.apps.django_app.urls', namespace='social')),
+
     url(r'^', include(rest.router.urls))
 )

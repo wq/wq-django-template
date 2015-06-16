@@ -28,7 +28,9 @@ ALLOWED_HOSTS = ["{{ project_name }}"]
 INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.auth',
-    'social.apps.django_app.default',
+
+    # Uncomment to enable python-social-auth
+    # 'social.apps.django_app.default',
 
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -73,7 +75,7 @@ from wq.db.default_settings import (
 
 # wq: Social auth (see http://psa.matiasaguirre.net/docs/backends/)
 AUTHENTICATION_BACKENDS = (
-    'social.backends.google.GoogleOpenId',
+     # 'social.backends.google.GoogleOpenId',
     'django.contrib.auth.backends.ModelBackend',
 )
 
