@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'rest_framework',
 
     'wq.db.patterns.identify',
+    'wq.db.patterns.locate',
     'wq.db.rest',
     'wq.db.rest.auth',
 
@@ -75,7 +76,7 @@ from wq.db.default_settings import (
 
 # wq: Social auth (see http://psa.matiasaguirre.net/docs/backends/)
 AUTHENTICATION_BACKENDS = (
-     # 'social.backends.google.GoogleOpenId',
+    # 'social.backends.google.GoogleOpenId',
     'django.contrib.auth.backends.ModelBackend',
 )
 

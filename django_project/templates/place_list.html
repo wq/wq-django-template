@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% verbatim %}
+<!--
+NOTE: This template is only meant to provide a bootstrap to help new projects
+get up and running with wq.  Please throw this out and replace it with your own
+interesting and unique designs, styles and layouts.  The sky is the limit!
+-->
+<html>
+  <head>
+    <title>Places</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page">
+      <div data-role="header">
+        {{>home}}
+        <h1>Places</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <ul data-role="listview" data-filter="true" data-inset="true">
+          {{#list}}
+          <li>
+            <a href="/places/{{id}}">
+              <h3>{{label}}</h3>
+              <p>{{description}}</p>
+            </a>
+          </li>
+          {{/list}}
+          {{^list}}
+          <li>No Places Found</li>
+          {{/list}}
+          <li data-icon="plus" data-theme="b">
+            <a href="/places/new">Add Place</a>
+          </li>
+        </ul>
+        <div class="map list-map" id="place-map"></div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endverbatim %}

@@ -11,15 +11,27 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Example',
+            name='Observation',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('date', models.DateField()),
+                ('photo', models.ImageField(upload_to='')),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Place',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
                 ('name', models.CharField(max_length=255)),
                 ('description', models.TextField()),
             ],
             options={
                 'abstract': False,
             },
-            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='observation',
+            name='place',
+            field=models.ForeignKey(to='exampleapp.Place'),
         ),
     ]

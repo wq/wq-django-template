@@ -1,0 +1,39 @@
+{% verbatim %}
+{{^photo.name}}
+<li class="ui-field-contain">
+  <img src="{{rt}}/images/empty.png"
+       id="{{page_config.name}}-preview">
+  <label for="{{page_config.name}}-photo">Photo</label>
+  {{#native}}
+  <input type="hidden" name="photo" id="{{page_config.name}}-photo"
+         data-wq-type="file" data-wq-preview="{{page_config.name}}-preview">
+  <div>
+    <button type="button" data-inline="true" data-icon="camera"
+       data-wq-action="take" data-wq-input="{{page_config.name}}-photo">
+       Camera
+    </button>
+    <button type="button" data-inline="true" data-icon="grid"
+       data-wq-action="pick" data-wq-input="{{page_config.name}}-photo">
+       Gallery
+    </button>
+  </div>
+  {{/native}}
+  {{^native}}
+  <input type="file" name="photo" id="{{page_config.name}}-photo"
+         data-wq-preview="{{page_config.name}}-preview">
+  {{/native}}
+  <p class="error {{page_config.name}}-photo-errors"></p>
+</li>
+{{/photo.name}}
+{{#photo.name}}
+{{#photo}}
+<li class="ui-field-contain">
+  <img src="{{image_url}}">
+  <label for="photo">Photo</label>
+  <input type="text" id="image" disabled
+      value="{{name}} ({{type}}, {{body.size}} bytes)">
+  <p class="error {{page_config.name}}-photo-errors"></p>
+</li>
+{{/photo}}
+{{/photo.name}}
+{% endverbatim %}

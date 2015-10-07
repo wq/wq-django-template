@@ -21,9 +21,9 @@ def start(project_name, destination):
     want to do the following:
 
     \b
-        chmod +x deploy.sh db/manage.py
         sudo chown www-data media/
-        cd app; wq init
+        cd app
+        wq init
 
     See https://wq.io/docs/setup for more tips on getting started with wq.
     """
@@ -32,5 +32,5 @@ def start(project_name, destination):
         project_name,
         destination,
         template=template,
-        extensions=["py", "yml", "conf", "html", "sh", "js"],
+        extensions=["py", "yml", "conf", "html", "sh", "js", "css", "json"],
     )

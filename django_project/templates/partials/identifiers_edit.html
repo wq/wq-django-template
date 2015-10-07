@@ -1,0 +1,30 @@
+{% verbatim %}
+<li data-role="list-divider">Identifiers</li>
+{{#identifiers}}
+<li class="ui-field-contain">
+  {{#id}}
+  <input type="hidden" name="identifiers[{{@index}}][id]" value="{{id}}">
+  <input type="hidden" name="identifiers[{{@index}}][is_primary]" value="{{is_primary}}">
+  {{/id}}
+  {{#is_primary}}
+  <input type="hidden" name="identifiers[{{@index}}][slug]" value="{{slug}}">
+  {{/is_primary}}
+  <input type="hidden" name="identifiers[{{@index}}][authority_id]" value="{{authority_id}}">
+  <label for="identifiers-{{@index}}-name">
+    {{authority_label}} - Name
+  </label>
+  <input name="identifiers[{{@index}}][name]" id="identifiers-{{@index}}-name" value="{{name}}">
+  <p class="error {{page_config.name}}-identifiers-{{@index}}-name-errors"></p>
+  <p class="error {{page_config.name}}-identifiers-{{@index}}-authority_id-errors"></p>
+</li>
+{{^is_primary}}
+<li class="ui-field-contain">
+  <label for="identifiers-{{@index}}-slug">
+    {{authority_label}} - ID
+  </label>
+  <input name="identifiers[{{@index}}][slug]" id="identifiers-{{@index}}-slug" value="{{slug}}">
+  <p class="error {{page_config.name}}-identifiers-{{@index}}-slug-errors"></p>
+</li>
+{{/is_primary}}
+{{/identifiers}}
+{% endverbatim %}

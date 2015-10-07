@@ -1,9 +1,30 @@
-define(['wq/app', 'wq/map', './config'],
-function(app, map, config) {
+define(['wq/app', 'wq/map', 'wq/photos',
+        './config',
+        'leaflet.draw'],
+function(app, map, photos, config) {
 
+app.use(map);
+app.use(photos);
+
+config.presync = presync;
+config.postsync = postsync;
 app.init(config).then(function() {
-    map.init(config.map);
     app.jqmInit();
+    app.prefetchAll();
 });
+
+// Sync UI
+function presync() {
+    $('button.sync').html("Syncing...");
+    $('li a.ui-icon-minus, li a.ui-icon-alert')
+       .removeClass('ui-icon-minus')
+       .removeClass('ui-icon-alert')
+       .addClass('ui-icon-refresh');
+}
+
+function postsync(items) {
+    $('button.sync').html("Sync Now");
+    app.syncRefresh(items);
+}
 
 });

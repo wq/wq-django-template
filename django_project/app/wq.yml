@@ -41,6 +41,10 @@ appcache:
     css-ignore: "css/lib/images/icons-png/.*"
     cache:
          - js/lib/require.js
+         - css/lib/images/marker-icon.png
+         - css/lib/images/marker-icon-2x.png
+         - css/lib/images/marker-shadow.png
+         - images/empty.png
     network:
          - "*"
          - "http://*"

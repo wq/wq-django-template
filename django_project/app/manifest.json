@@ -1,0 +1,6 @@
+{
+    "name": "{{ project_name }} Project",
+    "start_url": "index.html",
+    "display": "fullscreen"
+}
+

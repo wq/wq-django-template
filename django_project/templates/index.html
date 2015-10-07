@@ -8,6 +8,8 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
 <html manifest="{{ project_name }}.appcache">
   <head>
     <title>{{ project_name }} Project</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
     {% templatetag openvariable %}>head{% templatetag closevariable %}
   </head>
   <body>
@@ -17,13 +19,18 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
       </div>
       <div role="main" class="ui-content">
         <p>Hello, world!</p>
-        <p>Version {% templatetag openvariable %}version{% templatetag closevariable %}</p>
         <ul data-role="listview">
           <li><a href="/login">Log In</a></li>
-          <li><a href="/examples">Example List</a></li>
+          <li><a href="/places">Places</a></li>
+          <li><a href="/observations">Observations</a></li>
         </ul>
       </div>
-      <div id="index-map" style="height:400px"></div>
+      <div id="index-map" class="map list-map"></div>
+      <p class="footer">
+        {{ project_name }} v{% templatetag openvariable %}version{% templatetag closevariable %}
+        &bull;
+        Powered by <a href="https://wq.io/">wq</a>
+      </p>
     </div>
   </body>
 </html>

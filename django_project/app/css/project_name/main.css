@@ -1,0 +1,25 @@
+.error {
+    color: red;
+    clear: both;
+}
+
+.footer {
+    text-align: center;
+    font-size: 0.8em;
+}
+.footer, .footer a, .footer a:visited {
+    color: #999;
+}
+
+.map {
+    border: 1px solid #999;
+}
+.map.list-map {
+    height: 500px;
+}
+.map.detail-map {
+    height: 300px;
+}
+.map.edit-map {
+    height: 400px;
+}
