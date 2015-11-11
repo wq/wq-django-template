@@ -15,6 +15,7 @@ http://wq.io/docs/settings
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import sys
 # wq: extra dirname() to account for db/ folder
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
@@ -123,3 +124,6 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+# Determine if we are running off djangos testing server
+DEBUG_WITH_RUNSERVER = 'manage.py' in sys.argv[0]
