@@ -8,6 +8,8 @@ admin.autodiscover()
 from wq.db import rest
 rest.autodiscover()
 
+from django.conf import settings
+
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
@@ -18,16 +20,13 @@ urlpatterns = patterns('',
 )
 
 if settings.DEBUG_WITH_RUNSERVER:
-    urlpatterns.extend(patterns('',
-        url(r'^media/', include('dmt.urls')), #debug mode only
-    ))
 
+    # To use django-media-thumbnailer
+    # urlpatterns += patterns('', url('^media/', include('dmt.urls')))
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    urlpatterns += static('/media/', document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG_WITH_RUNSERVER:
-	# after building...
-    urlpatterns += static('/css/', document_root=os.path.join(BASE_DIR, 'htdocs', 'css/'))
-    urlpatterns += static('/images/', document_root=os.path.join(BASE_DIR, 'htdocs', 'images/'))
-    urlpatterns += static('/js/', document_root=os.path.join(BASE_DIR, 'htdocs', 'js/'))
-    urlpatterns += static('/', document_root=os.path.join(BASE_DIR, 'htdocs/'))
+    # after building...
+    urlpatterns += static(
+        '/', document_root=os.path.join(settings.BASE_DIR, 'htdocs')
+    )
