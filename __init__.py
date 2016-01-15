@@ -2,7 +2,8 @@ from wq.core import wq
 import click
 import os
 from django.core.management import call_command
-from pkg_resources import resource_filename
+import sys
+from pkg_resources import resource_filename, get_distribution
 
 template = resource_filename('wq.start', 'django_project')
 # resource_filename not returning absolute path after pip install
@@ -34,3 +35,47 @@ def start(project_name, destination):
         template=template,
         extensions=["py", "yml", "conf", "html", "sh", "js", "css", "json"],
     )
+    txt = os.path.join(destination or project_name, 'requirements.txt')
+    print_versions(txt, False)
+
+
+@wq.command()
+@click.option("--output", help="Output filename")
+@click.option(
+    "--all/--app-db-only",
+    default=False,
+    help="Include all wq deps, or only those required for wq.app and wq.db."
+)
+def versions(output, all):
+    """
+    Show installed versions of wq.app and wq.db.  Also prints out
+    any and all required dependencies.
+
+    (Useful for generating a requirements.txt)
+    """
+    print_versions(output, all)
+
+
+def print_versions(output, all):
+    libs = set()
+
+    def add_lib(lib):
+        dist = get_distribution(lib)
+        libs.add((lib, dist.version))
+        for req in dist.requires():
+            add_lib(req.project_name)
+
+    if all:
+        init_libs = ['wq']
+    else:
+        init_libs = ['wq.app', 'wq.db']
+    for lib in init_libs:
+        add_lib(lib)
+
+    if output:
+        dest = open(output, 'w')
+    else:
+        dest = sys.stdout
+
+    for lib, version in sorted(libs):
+        dest.write('%s==%s\n' % (lib, version))
