@@ -1,7 +1,7 @@
 {% verbatim %}
 {{#unsyncedItems}}
 <li data-icon="{{#error}}alert{{/error}}{{^error}}minus{{/error}}">
-  <a href="/outbox/{{id}}/edit">
+  <a href="{{rt}}/outbox/{{id}}/edit">
     {{#data}}
     {{#photo}}
     <img src="{{image_url}}" alt="Observation on {{date}}">
@@ -25,7 +25,7 @@
       </button>
       {{/is_authenticated}}
       {{^is_authenticated}}
-      <a href="/login" data-role="button" data-icon="lock">
+      <a href="{{rt}}/login" data-role="button" data-icon="lock">
         Log in to Sync
       </a>
       {{/is_authenticated}}

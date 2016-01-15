@@ -27,7 +27,7 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
           <li data-role="list-divider">Synced Observations</li>
           {{#list}}
           <li>
-            <a href="/observations/{{id}}">
+            <a href="{{rt}}/observations/{{id}}">
               <img src="{{photo}}" alt="{{label}}">
               <h3>{{label}}</h3>
             </a>
@@ -37,7 +37,7 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
           <li>No Observations Found</li>
           {{/list}}
           <li data-icon="plus" data-theme="b">
-            <a href="/observations/new">Add Observation</a>
+            <a href="{{rt}}/observations/new">Add Observation</a>
           </li>
         </ul>
       </div>

@@ -17,7 +17,7 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
         <h1>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} Observation</h1>
       </div>
       <div role="main" class="ui-content">
-        <form action="/observations/{{id}}" method="post" data-ajax="false"
+        <form action="{{rt}}/observations/{{id}}" method="post" data-ajax="false"
             data-wq-json="true"
             {{#outbox_id}}
               data-wq-outbox-id="{{outbox_id}}"
@@ -47,7 +47,7 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
             <li>
               <div class="ui-grid-a">
                 <div class="ui-block-a">
-                  <a href="/observations/{{id}}" data-role="button" data-icon="back" data-direction="reverse">
+                  <a href="{{rt}}/observations/{{id}}" data-role="button" data-icon="back" data-direction="reverse">
                     Back
                   </a>
                 </div>

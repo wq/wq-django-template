@@ -20,7 +20,7 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
         <ul data-role="listview" data-filter="true" data-inset="true">
           {{#list}}
           <li>
-            <a href="/places/{{id}}">
+            <a href="{{rt}}/places/{{id}}">
               <h3>{{label}}</h3>
               <p>{{description}}</p>
             </a>
@@ -30,7 +30,7 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
           <li>No Places Found</li>
           {{/list}}
           <li data-icon="plus" data-theme="b">
-            <a href="/places/new">Add Place</a>
+            <a href="{{rt}}/places/new">Add Place</a>
           </li>
         </ul>
         <div class="map list-map" id="place-map"></div>

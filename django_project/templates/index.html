@@ -20,9 +20,9 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
       <div role="main" class="ui-content">
         <p>Hello, world!</p>
         <ul data-role="listview">
-          <li><a href="/login">Log In</a></li>
-          <li><a href="/places">Places</a></li>
-          <li><a href="/observations">Observations</a></li>
+          <li><a href="{% templatetag openvariable %}rt{% templatetag closevariable %}/login">Log In</a></li>
+          <li><a href="{% templatetag openvariable %}rt{% templatetag closevariable %}/places">Places</a></li>
+          <li><a href="{% templatetag openvariable %}rt{% templatetag closevariable %}/observations">Observations</a></li>
         </ul>
       </div>
       <div id="index-map" class="map list-map"></div>

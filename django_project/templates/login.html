@@ -19,12 +19,12 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
       <div role="main" class="ui-content">
         {{#is_authenticated}}
         <p>Logged in as {{user.username}}</p>
-        <a href="/logout" data-role="button" data-icon="delete">
+        <a href="{{rt}}/logout" data-role="button" data-icon="delete">
           Log Out
         </a>
         {{/is_authenticated}}
         {{^is_authenticated}}
-        <form action="/login" method="post" data-ajax="false"
+        <form action="{{rt}}/login" method="post" data-ajax="false"
             data-wq-json="true" data-wq-background-sync="false">
           {{>csrf}}
           <ul data-role="listview">
@@ -39,7 +39,7 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
             <li>
               <div class="ui-grid-a">
                 <div class="ui-block-a">
-                  <a href="/" data-role="button" data-icon="back" data-direction="reverse">
+                  <a href="{{rt}}/" data-role="button" data-icon="back" data-direction="reverse">
                     Back
                   </a>
                 </div>

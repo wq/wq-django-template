@@ -15,14 +15,14 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
       <div data-role="header">
         {{>home}}
         <h1>{{label}}</h1>
-        <a href="/observations/{{id}}/edit" data-icon="edit" data-transition="flip">
+        <a href="{{rt}}/observations/{{id}}/edit" data-icon="edit" data-transition="flip">
           Edit
         </a>
       </div>
       <div role="main" class="ui-content">
         <h1>{{label}}</h1>
         <table>
-          <tr><th>Place</th><td><a href="/places/{{place_id}}">{{place_label}}</a></td></tr>
+          <tr><th>Place</th><td><a href="{{rt}}/places/{{place_id}}">{{place_label}}</a></td></tr>
           <tr><th>Date</th><td>{{date}}</td></tr>
         </table>
         <img src="{{photo}}" alt="{{label}}" style="max-width:100%">
