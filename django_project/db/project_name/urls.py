@@ -1,6 +1,6 @@
 import os
 from django.conf.urls.static import static
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 
 from django.contrib import admin
 admin.autodiscover()
@@ -10,19 +10,19 @@ rest.autodiscover()
 
 from django.conf import settings
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     # Uncomment to enable python-social-auth URLs
     # url(r'', include('social.apps.django_app.urls', namespace='social')),
 
     url(r'^', include(rest.router.urls))
-)
+]
 
 if settings.DEBUG_WITH_RUNSERVER:
 
     # To use django-media-thumbnailer
-    # urlpatterns += patterns('', url('^media/', include('dmt.urls')))
+    # urlpatterns.append(url('^media/', include('dmt.urls')))
 
     urlpatterns += static('/media/', document_root=settings.MEDIA_ROOT)
 
