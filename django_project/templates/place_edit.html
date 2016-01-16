@@ -17,7 +17,7 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
         <h1>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} Place</h1>
       </div>
       <div role="main" class="ui-content">
-        <form action="{{rt}}/places/{{id}}" method="post" data-ajax="false"
+        <form action="{{svc}}/places/{{id}}" method="post" data-ajax="false"
             data-wq-json="true" data-wq-background-sync="false">
           {{>csrf}}
           {{#id}}

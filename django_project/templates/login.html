@@ -24,7 +24,7 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
         </a>
         {{/is_authenticated}}
         {{^is_authenticated}}
-        <form action="{{rt}}/login" method="post" data-ajax="false"
+        <form action="{{svc}}/login" method="post" data-ajax="false"
             data-wq-json="true" data-wq-background-sync="false">
           {{>csrf}}
           <ul data-role="listview">

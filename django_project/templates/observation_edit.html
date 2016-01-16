@@ -17,7 +17,7 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
         <h1>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} Observation</h1>
       </div>
       <div role="main" class="ui-content">
-        <form action="{{rt}}/observations/{{id}}" method="post" data-ajax="false"
+        <form action="{{svc}}/observations/{{id}}" method="post" data-ajax="false"
             data-wq-json="true"
             {{#outbox_id}}
               data-wq-outbox-id="{{outbox_id}}"
