@@ -40,12 +40,10 @@ INSTALLED_APPS = [
     # 'social.apps.django_app.default',
     'rest_framework',
 
-    'wq.db.patterns.identify',
-    'wq.db.patterns.locate',
     'wq.db.rest',
     'wq.db.rest.auth',
 
-    'exampleapp',
+    # Project apps
 ]
 
 MIDDLEWARE_CLASSES = [

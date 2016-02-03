@@ -20,19 +20,19 @@ if os.sep not in templates:
 )
 @click.option(
     "--input-dir",
-    default="master_templates",
+    default="../master_templates",
     type=click.Path(exists=True),
     help="Source / master templates",
 )
 @click.option(
     "--django-dir",
-    default="db",
+    default=".",
     type=click.Path(exists=True),
     help="Root of Django project",
 )
 @click.option(
     "--template-dir",
-    default="templates",
+    default="../templates",
     type=click.Path(exists=True),
     help="Path to shared template directory",
 )
@@ -58,8 +58,8 @@ def addform(xlsform, input_dir, django_dir, template_dir,
         templates/[form_name]_list.html
     """
 
+    xls_json = parse_xls(xlsform)
     if not form_name:
-        xls_json = parse_xls(xlsform)
         form_name = xls_json['name']
 
     os.mkdir(os.path.join(django_dir, form_name))
@@ -78,7 +78,13 @@ def addform(xlsform, input_dir, django_dir, template_dir,
             xls2django(xlsform, os.path.join(templates, 'admin.py-tpl'))
         )
 
-    for tmpl in ('detail', 'edit', 'list'):
+    template_types = set(['detail', 'edit', 'list'])
+    for field in xls_json['children']:
+        if 'geo' in field['type']:
+            if 'popup' in template_types:
+                print("Warning: multiple geometry fields found.")
+            template_types.add('popup')
+    for tmpl in template_types:
         create_file(
             [template_dir, "%s_%s.html" % (form_name, tmpl)],
             xls2html(xlsform, os.path.join(input_dir, '%s.html' % tmpl))

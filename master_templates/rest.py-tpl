@@ -1,5 +1,38 @@
+{{=[[ ]]=}}
 from wq.db import rest
-from .models import {{form.class_name}}
+from .models import [[form.class_name]]
 
 
-rest.router.register_model({{form.class_name}})
+rest.router.register_model(
+    [[form.class_name]],[[#form.has_geo]]
+    map={
+        'list': {
+            'autoLayers': True,
+            'layers': [],
+        },
+        'detail': {
+            'autoLayers': True,
+            'layers': [],
+        },
+        'edit': {[[#fields]][[#type_is_geo]]
+            'layers': [{
+                'type': 'geojson',
+                'name': '[[name]]',
+                'url': '[[form.urlpath]]/{{id}}/edit.geojson',
+                'draw': {
+                    'circle': False,[[#type_is_geopoint]]
+                    'marker': {},[[/type_is_geopoint]][[^type_is_geopoint]]
+                    'marker': False,[[/type_is_geopoint]][[#type_is_geotrace]]
+                    'polyline': {},[[/type_is_geotrace]][[^type_is_geotrace]]
+                    'polyline': False,[[/type_is_geotrace]][[#type_is_geoshape]]
+                    'polygon': {},
+                    'rectangle': {},[[/type_is_geoshape]][[^type_is_geoshape]]
+                    'polygon': False,
+                    'rectangle': False,[[/type_is_geoshape]]
+                },
+                'geometryField': '[[name]]',
+                'flatten': True,
+            }],[[/type_is_geo]][[/fields]]
+        },
+    },[[/form.has_geo]]
+)

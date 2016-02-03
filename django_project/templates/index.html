@@ -20,12 +20,13 @@ interesting and unique designs, styles and layouts.  The sky is the limit!
       <div role="main" class="ui-content">
         <p>Hello, world!</p>
         <ul data-role="listview">
-          <li><a href="{% templatetag openvariable %}rt{% templatetag closevariable %}/login">Log In</a></li>
-          <li><a href="{% templatetag openvariable %}rt{% templatetag closevariable %}/places">Places</a></li>
-          <li><a href="{% templatetag openvariable %}rt{% templatetag closevariable %}/observations">Observations</a></li>
+          <!-- Note: in many cases, you will want to replace this with a
+          hardcoded list of links (rather than the default pages list) -->
+          {% verbatim %}{{#pages}}
+          <li><a href="{{rt}}/{{url}}{{#list}}/{{/list}}">{{name}} {{#list}}list{{/list}}</a></li>
+          {{/pages}}{% endverbatim %}
         </ul>
       </div>
-      <div id="index-map" class="map list-map"></div>
       <p class="footer">
         {{ project_name }} v{% templatetag openvariable %}version{% templatetag closevariable %}
         &bull;

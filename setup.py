@@ -80,6 +80,7 @@ setup(
     package_data={'wq.start': TEMPLATE_DATA},
     install_requires=[
         'wq.core',
+        'xlsconv',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',

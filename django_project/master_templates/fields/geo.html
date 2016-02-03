@@ -1,0 +1,10 @@
+{% verbatim %}{{=[[ ]]=}}
+<li>
+  <label for='[[form.name]]-[[name]]'>[[label]]</label>
+  <input type='hidden' data-xform-type='[[type]]' name='[[name]]'[[#bind.required]] required[[/bind.required]]>
+  <div class="map edit-map" id='[[form.name]]-{{id}}{{^id}}new{{/id}}-edit-map'></div>
+  [[#hint]]
+  <p class="hint">[[hint]]</p>
+  [[/hint]]
+  <p class='error [[form.name]]-[[name]]-errors'></p>
+</li>{% endverbatim %}
