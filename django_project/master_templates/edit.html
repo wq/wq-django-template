@@ -1,0 +1,33 @@
+{% verbatim %}{{=[[ ]]=}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{^id}}Add{{/id}}{{#id}}Edit{{/id}} [[form.title]]</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{^id}}Add{{/id}}{{#id}}Edit{{/id}} [[form.title]]</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <form action="{{rt}}/[[form.urlpath]]">
+          <ul data-role="listview" data-inset="true">
+            [[#fields]]
+            [[#html5_type]]
+            [[>fields/input]]
+            [[/html5_type]]
+            [[#type_is_note]]
+            [[>fields/note]]
+            [[/type_is_note]]
+            [[#type_is_text]]
+            [[>fields/textarea]]
+            [[/type_is_text]]
+            [[/fields]]
+          </ul>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>{% endverbatim %}

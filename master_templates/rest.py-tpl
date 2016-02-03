@@ -1,0 +1,5 @@
+from wq.db import rest
+from .models import {{form.class_name}}
+
+
+rest.router.register_model({{form.class_name}})

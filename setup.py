@@ -58,6 +58,7 @@ create_wq_namespace()
 # Template data (currently only one project template)
 TEMPLATES = [
     'django_project',
+    'master_templates',
 ]
 TEMPLATE_DATA = []
 for folder in TEMPLATES:
@@ -72,7 +73,7 @@ setup(
     license='MIT',
     description=LONG_DESCRIPTION.strip(),
     long_description=parse_markdown_readme(),
-    entry_points={'wq':'wq.start=wq.start'},
+    entry_points={'wq': 'wq.start=wq.start'},
     packages=['wq.start'],
     package_dir={'wq.start': '.'},
     namespace_packages=['wq'],

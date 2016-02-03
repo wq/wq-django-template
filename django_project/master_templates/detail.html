@@ -1,0 +1,34 @@
+{% verbatim %}{{=[[ ]]=}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{label}}</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{label}}<h1>
+        {{#page_config.can_edit}}
+        <a href="{{rt}}/[[form.urlpath]]/edit" data-icon="edit" data-transition="flip">
+          Edit
+        </a>
+        {{/page_config.can_edit}}
+      </div>
+      <div role="main" class="ui-content">
+        <h1>{{label}}</h1>
+        <table>
+        [[#fields]]
+          [[^type_is_note]]
+          <tr>
+            <th>[[label]]</th>
+            <td>{{[[name]]}}</td>
+          </tr>
+          [[/type_is_note]]
+        [[/fields]]
+        </table>
+      </div>
+    </div>
+  </body>
+</html>{% endverbatim %}

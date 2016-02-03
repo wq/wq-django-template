@@ -1,0 +1,30 @@
+{% verbatim %}{{=[[ ]]=}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>[[form.title]] List</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        {{>home}}
+        <h1>[[form.title]] List</h1>
+        {{#page_config.can_edit}}
+        <a href="{{rt}}/[[form.urlpath]]/new" data-icon="plus">
+          Add New
+        </a>
+        {{/page_config.can_edit}}
+      </div>
+      <div role="main" class="ui-content">
+        <ul data-role="listview" data-filter="true">
+          {{#list}}
+          <li>
+            <a href="{{rt}}/[[form.urlpath]]/{{id}}">{{label}}</a>
+          </li>
+          {{/list}}
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>{% endverbatim %}
