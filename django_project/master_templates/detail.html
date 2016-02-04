@@ -9,12 +9,12 @@
     <div data-role="page">
       <div data-role="header">
         {{>home}}
-        <h1>{{label}}<h1>
-        {{#page_config.can_edit}}
+        <h1>{{label}}</h1>
+        {{#page_config.can_change}}
         <a href="{{rt}}/[[form.urlpath]]/{{id}}/edit" data-icon="edit" data-transition="flip">
           Edit
         </a>
-        {{/page_config.can_edit}}
+        {{/page_config.can_change}}
       </div>
       <div role="main" class="ui-content">
         [[#form.has_geo]]
@@ -29,7 +29,7 @@
             [[^type_is_binary]]
             <tr>
               <th>[[label]]</th>
-              <td>{{[[name]]}}</td>
+              <td>{{[[name]][[#has_label]]_label[[/has_label]]}}</td>
             </tr>
             [[/type_is_binary]]
             [[/type_is_geo]]

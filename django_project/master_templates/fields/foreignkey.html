@@ -1,0 +1,16 @@
+{% verbatim %}{{=[[ ]]=}}
+<li class="ui-field-contain">
+  <label for='[[form.name]]-[[name]]_id'>[[label]]</label>
+  <select id='[[form.name]]-[[name]]_id' data-xform-type='[[type]]' name='[[name]]_id'[[#bind.required]] required[[/bind.required]]>
+    <option value="">Select one..</option>
+    {{#[[name]]_list}}
+    <option value="{{id}}"{{#selected}} selected{{/selected}}>
+      {{label}}
+    </option>
+    {{/[[name]]_list}}
+  </select>
+  [[#hint]]
+  <p class="hint">[[hint]]</p>
+  [[/hint]]
+  <p class='error [[form.name]]-[[name]]-errors'></p>
+</li>{% endverbatim %}
