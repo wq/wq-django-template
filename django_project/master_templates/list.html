@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>[[form.title]] List</title>
+    <title>[[form.title]] List{{#parent_id}} for {{parent_label}}{{/parent_id}}</title>
     {{>head}}
   </head>
   <body>
     <div data-role="page" data-wq-sync-refresh="true">
       <div data-role="header">
         {{>home}}
-        <h1>[[form.title]] List</h1>
+        <h1>[[form.title]] List{{#parent_id}} for {{parent_label}}{{/parent_id}}</h1>
         {{#page_config.can_edit}}
         <a href="{{rt}}/[[form.urlpath]]/new" data-icon="plus">
           Add New
@@ -17,6 +17,11 @@
         {{/page_config.can_edit}}
       </div>
       <div role="main" class="ui-content">
+        {{#parent_id}}
+        <p>
+          <a href="{{rt}}/{{parent_url}}">&lt; Back to {{parent_label}}</a>
+        </p>
+        {{/parent_id}}
         {{#unsynced}}
         <ul data-role="listview" data-inset="true">
           <li data-role="list-divider">Outbox</li>
@@ -70,13 +75,13 @@
             </li>
             {{/list}}
             <li data-icon="plus" data-theme="b">
-              <a href="{{rt}}/[[form.urlpath]]/new">Add [[form.title]]</a>
+              <a href="{{rt}}/[[form.urlpath]]/new{{#parent_id}}?{{parent_page}}_id={{parent_id}}{{/parent_id}}">Add [[form.title]]</a>
             </li>
           </ul>
         [[#form.has_geo]]
         </div>
         <div class="ui-block-b">
-          <div class='map list-map' id="[[form.name]]-map"></div>
+          <div class='map list-map' id="{{#parent_id}}{{parent_page}}-{{parent_id}}-{{/parent_id}}[[form.name]]-map"></div>
         </div>
         </div>
         [[/form.has_geo]]
