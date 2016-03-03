@@ -24,9 +24,9 @@
     height: 400px;
 }
 
-.ui-grid-a .ui-block-a {
+.ui-content .ui-grid-a .ui-block-a {
     padding-right: 0.5em;
 }
-.ui-grid-a .ui-block-b {
+.ui-content .ui-grid-a .ui-block-b {
     padding-left: 0.5em;
 }
