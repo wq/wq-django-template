@@ -3,8 +3,8 @@
   <fieldset data-xform-type='[[type]]' data-role='controlgroup'{{^more_than_5_choices}} data-type='horizontal'{{/more_than_5_choices}}>
     <legend>[[label]]</legend>
     {{#[[name]]_choices}}
-    <input type='radio' id='[[form.name]]-[[field_name]]-{{value}}' name='[[field_name]]' value='{{value}}'{{#selected}} checked{{/selected}}>
-    <label for='[[form.name]]-[[field_name]]-{{value}}'>{{label}}</label>
+    <input type='radio' id='[[form.name]]-[[field_name]]-{{name}}' name='[[field_name]]' value='{{name}}'{{#selected}} checked{{/selected}}>
+    <label for='[[form.name]]-[[field_name]]-{{name}}'>{{label}}</label>
     {{/[[name]]_choices}}
   </fieldset>
   [[#hint]]
