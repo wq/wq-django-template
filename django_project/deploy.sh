@@ -6,6 +6,14 @@ set -e
 # Dump wq configuration object to file
 db/manage.py dump_config --format amd > app/js/data/config.js
 
+# (Re-)generate templates for all registered models
+# NOTE: remove --overwrite if you will be customizing individual templates
+wq maketemplates \
+     --django-dir db \
+     --input-dir master_templates \
+     --template-dir templates \
+     --overwrite
+
 # Build javascript with wq.app
 cd app;
 wq build $1;
