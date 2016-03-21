@@ -5,6 +5,7 @@ from xlsconv import parse_xls, xls2django, xls2html, html_context, render
 from pkg_resources import resource_filename
 import subprocess
 import json
+from difflib import unified_diff
 
 
 templates = resource_filename('wq.start', 'master_templates')
@@ -113,8 +114,10 @@ def addform(xlsform, input_dir, django_dir, template_dir,
     help="Path to shared template directory",
 )
 @click.option(
-    '--overwrite/--no-overwrite',
+    '-f',
+    '-overwrite',
     default=False,
+    is_flag=True,
     help="Replace existing templates",
 )
 def maketemplates(input_dir, django_dir, template_dir, overwrite):
@@ -164,9 +167,35 @@ def maketemplates(input_dir, django_dir, template_dir, overwrite):
 
 
 def create_file(path, contents, overwrite=True):
-    if os.path.exists(os.path.join(*path)) and not overwrite:
-        print('%s already exists; skipping' % path[-1])
-        return
+    filename = os.path.join(*path)
+    if os.path.exists(filename) and not overwrite:
+        existing_file = open(filename, 'r')
+        existing_content = existing_file.read()
+        if existing_content.strip() == contents.strip():
+            return
+        choice = ''
+        while choice.lower() not in ('y', 'n'):
+            choice = click.prompt(
+                '%s already exists; overwrite? [y/n/d/?]' % path[-1]
+            )
+            if choice.lower() == 'n':
+                return
+            elif choice.lower() == '?':
+                print(
+                    '  y - overwrite\n'
+                    '  n - skip\n'
+                    '  d - show diff\n'
+                    '  ? - show help'
+                )
+            elif choice.lower() == 'd':
+                diff = unified_diff(
+                    existing_content.split('\n'),
+                    contents.split('\n'),
+                    fromfile="%s (current)" % path[-1],
+                    tofile="%s (new)" % path[-1],
+                )
+                for row in diff:
+                    print(row)
     out = open(os.path.join(*path), 'w')
     out.write(contents)
     out.close()
