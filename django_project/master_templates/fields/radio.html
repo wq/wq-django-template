@@ -1,14 +1,14 @@
 {% verbatim %}{{=[[ ]]=}}
 <li class="ui-field-contain">
-  <fieldset data-xform-type='[[type]]' data-role='controlgroup'{{^more_than_5_choices}} data-type='horizontal'{{/more_than_5_choices}}>
+  <fieldset data-xform-type='[[type]]' data-role='controlgroup'[[^more_than_5_choices]] data-type='horizontal'[[/more_than_5_choices]]>
     <legend>[[label]]</legend>
     {{#[[name]]_choices}}
-    <input type='radio' id='[[form.name]]-[[field_name]]-{{name}}' name='[[field_name]]' value='{{name}}'{{#selected}} checked{{/selected}}>
-    <label for='[[form.name]]-[[field_name]]-{{name}}'>{{label}}</label>
+    <input type='radio' id='[[form.name]]-[[field_id]]-{{name}}' name='[[field_formname]]' value='{{name}}'{{#selected}} checked{{/selected}}>
+    <label for='[[form.name]]-[[field_id]]-{{name}}'>{{label}}</label>
     {{/[[name]]_choices}}
   </fieldset>
   [[#hint]]
   <p class='hint'>[[hint]]</p>
   [[/hint]]
-  <p class='error [[form.name]]-[[name]]-errors'></p>
+  <p class='error [[form.name]]-[[field_id]]-errors'></p>
 </li>{% endverbatim %}

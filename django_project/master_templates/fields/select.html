@@ -1,7 +1,7 @@
 {% verbatim %}{{=[[ ]]=}}
 <li class="ui-field-contain">
-  <label for='[[form.name]]-[[name]]'>[[label]]</label>
-  <select id='[[form.name]]-[[name]]' data-xform-type='[[type]]' name='[[name]]'[[#bind.required]] required[[/bind.required]][[#type_is_select]] multiple[[/type_is_select]]>
+  <label for='[[form.name]]-[[field_id]]'>[[label]]</label>
+  <select id='[[form.name]]-[[field_id]]' data-xform-type='[[type]]' name='[[field_formname]]'[[#bind.required]] required[[/bind.required]][[#type_is_select]] multiple[[/type_is_select]]>
     [[#type_is_select1]]
     <option value="">Select one..</option>
     [[/type_is_select1]]
@@ -14,5 +14,5 @@
   [[#hint]]
   <p class="hint">[[hint]]</p>
   [[/hint]]
-  <p class='error [[form.name]]-[[name]]-errors'></p>
+  <p class='error [[form.name]]-[[field_id]]-errors'></p>
 </li>{% endverbatim %}

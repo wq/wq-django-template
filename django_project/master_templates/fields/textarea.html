@@ -1,9 +1,9 @@
 {% verbatim %}{{=[[ ]]=}}
 <li class="ui-field-contain">
-  <label for='[[form.name]]-[[name]]'>[[label]]</label>
-  <textarea id='[[form.name]]-[[name]]' name='[[name]]' data-xform-type="[[type]]"[[#bind.required]] required[[/bind.required]]>{{[[name]]}}</textarea>
+  <label for='[[form.name]]-[[field_id]]'>[[label]]</label>
+  <textarea id='[[form.name]]-[[field_id]]' name='[[field_formname]]' data-xform-type="[[type]]"[[#bind.required]] required[[/bind.required]]>{{[[name]]}}</textarea>
   [[#hint]]
   <p class="hint">[[hint]]</p>
   [[/hint]]
-  <p class='errors [[form.name]]-[[name]]-errors'></p>
+  <p class='error [[form.name]]-[[field_id]]-errors'></p>
 </li>{% endverbatim %}

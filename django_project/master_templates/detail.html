@@ -29,7 +29,40 @@
             [[^type_is_binary]]
             <tr>
               <th>[[label]]</th>
+              [[^wq:nested]]
+              [[#wq:ForeignKey]]
+              <td>{{[[real_name]]_label}}</td>
+              [[/wq:ForeignKey]]
+              [[^wq:ForeignKey]]
               <td>{{[[name]][[#has_label]]_label[[/has_label]]}}</td>
+              [[/wq:ForeignKey]]
+              [[/wq:nested]]
+              [[#wq:nested]]
+              <td>
+                {{#[[plural_name]]}}
+                <table>
+                [[#children]]
+                [[^type_is_note]]
+                [[^type_is_geo]]
+                [[^type_is_binary]]
+                  <tr>
+                    <th>[[label]]</th>
+                    [[#wq:ForeignKey]]
+                    <td>{{[real_name]]_label}}</td>
+                    [[/wq:ForeignKey]]
+                    [[^wq:ForeignKey]]
+                    <td>{{[[name]][[#has_label]]_label[[/has_label]]}}</td>
+                    [[/wq:ForeignKey]]
+                  </tr>
+                [[/type_is_binary]]
+                [[/type_is_geo]]
+                [[/type_is_note]]
+                [[/children]]
+                </table>
+                <hr>
+                {{/[[plural_name]]}}
+              </td>
+              [[/wq:nested]]
             </tr>
             [[/type_is_binary]]
             [[/type_is_geo]]

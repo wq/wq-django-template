@@ -65,12 +65,24 @@ def addform(xlsform, input_dir, django_dir, template_dir,
     if not form_name:
         form_name = xls_json['name']
 
-    os.mkdir(os.path.join(django_dir, form_name))
+    if not os.path.exists(os.path.join(django_dir, form_name)):
+        os.mkdir(os.path.join(django_dir, form_name))
 
     create_file(
         [django_dir, form_name, 'models.py'],
         xls2django(xlsform)
     )
+
+    has_nested = False
+    for field in xls_json['children']:
+        if field.get('wq:nested', False):
+            has_nested = True
+    if has_nested:
+        create_file(
+            [django_dir, form_name, 'serializers.py'],
+            xls2django(xlsform, os.path.join(templates, 'serializers.py-tpl'))
+        )
+
     create_file(
         [django_dir, form_name, 'rest.py'],
         xls2django(xlsform, os.path.join(templates, 'rest.py-tpl'))
@@ -138,17 +150,19 @@ def maketemplates(input_dir, django_dir, template_dir, overwrite):
         if not page.get('list', None):
             continue
 
-        fields = []
-        for field in page['form']:
-            if field['type'] in ('repeat',):
-                continue
-            field['type_info'] = {'bind': {'type': field['type']}}
-            fields.append(field)
+        def process_fields(fields):
+            for field in fields:
+                if field['type'] in ('repeat',):
+                    field['wq:nested'] = True
+                    process_fields(field['children'])
+                else:
+                    field['type_info'] = {'bind': {'type': field['type']}}
 
+        process_fields(page['form'])
         context = html_context({
             'name': page['name'],
             'title': page['name'],
-            'children': fields,
+            'children': page['form'],
         })
         context['form']['urlpath'] = page['url']
 
@@ -166,7 +180,7 @@ def maketemplates(input_dir, django_dir, template_dir, overwrite):
             )
 
 
-def create_file(path, contents, overwrite=True):
+def create_file(path, contents, overwrite=False):
     filename = os.path.join(*path)
     if os.path.exists(filename) and not overwrite:
         existing_file = open(filename, 'r')
