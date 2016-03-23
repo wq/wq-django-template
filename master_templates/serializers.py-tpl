@@ -6,7 +6,8 @@ from .models import [[form.class_name]][[#fields]][[#wq:nested]], [[class_name]]
 class [[class_name]]Serializer(patterns.AttachmentSerializer):
     class Meta(patterns.AttachmentSerializer.Meta):
         model = [[class_name]]
-        exclude = ('[[form.field_name]]',)[[#wq:initial]]
+        exclude = ('[[form.field_name]]',)
+        object_field = '[[form.field_name]]'[[#wq:initial]]
         wq_config = {
             'initial': [[wq:initial]],
         }[[/wq:initial]]
