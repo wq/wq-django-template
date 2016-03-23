@@ -1,18 +1,22 @@
-Project template for wq framework
+wq.start: Project template and scaffolding tools
 ================================
 
-This is the recommended Django project template for projects utilizing the [wq framework], with [wq.app] for the front end and [wq.db] as the backend component.
+`wq.start` provides the recommended Django project template for projects utilizing the [wq framework], with [wq.app] for the front end and [wq.db] as the backend component.  `wq.start` also provides commands for generating a default set of offline-capable list, detail, and edit templates.  The templates can be generated for existing Django models (via `wq maketemplates`), or both the models and the templates can be generated from an ODK-style [XLSForm](http://xlsform.org) (via `wq addform`).
 
 ### Usage
 
 ```sh
 pip3 install wq
 wq start <projectname> [directory]
+cd <projectname>/db
+wq addform ~/my-odk-form.xlsx
 ```
+
+Se the [Getting Started] docs for more information.
 
 ### Rationale
 
-This template is also useful as an example of how to build a web app with [RequireJS] and a [Django REST Framework] backend.  It differs from the default Django project template in a few key ways:
+This project template is also useful as an example of how to build a web app with [RequireJS] and a [Django REST Framework] backend.  It differs from the default Django project template in a few key ways:
 
  * A default Apache2 WSGI configuration is included in `conf/`
  * All static files are kept in the `app/` folder, with the idea that they will be built with a RequireJS-powered [build process].  This clean separation between the front end and backend components makes it easier to wrap the front end in [PhoneGap] for release on app stores.
@@ -22,11 +26,8 @@ This template is also useful as an example of how to build a web app with [Requi
 [wq framework]: http://wq.io/
 [wq.app]: http://wq.io/wq.app
 [wq.db]: http://wq.io/wq.db
+[Getting Started]: https://wq.io/docs/setup
 [RequireJS]: http://requirejs.org
 [Django REST Framework]: http://www.django-rest-framework.org
 [build process]: http://wq.io/docs/build
 [PhoneGap]: http://phonegap.com
-
-
-
-
