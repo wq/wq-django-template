@@ -1,9 +1,10 @@
-define(['wq/app', 'wq/map', 'wq/photos',
+define(['wq/app', 'wq/map', 'wq/patterns', 'wq/photos',
         './config',
         'leaflet.draw'],
-function(app, map, photos, config) {
+function(app, map, patterns, photos, config) {
 
 app.use(map);
+app.use(patterns);
 app.use(photos);
 
 config.presync = presync;
