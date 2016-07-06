@@ -1,6 +1,16 @@
 {
     "name": "{{ project_name }} Project",
     "start_url": "/",
-    "display": "fullscreen"
+    "display": "fullscreen",
+    "icons": [
+        {
+            "src": "images/icon-192.png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "images/icon-512.png",
+            "sizes": "512x512"
+        }
+    ]
 }
 
