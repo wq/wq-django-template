@@ -1,5 +1,0 @@
-from django.contrib{{#form.has_geo}}.gis{{/form.has_geo}} import admin
-from .models import {{form.class_name}}
-
-
-admin.site.register({{form.class_name}}{{#form.has_geo}}, admin.GeoModelAdmin{{/form.has_geo}})

@@ -70,7 +70,7 @@ def addform(xlsform, input_dir, django_dir, template_dir,
 
     create_file(
         [django_dir, form_name, 'models.py'],
-        xls2django(xlsform)
+        xls2django(xlsform, 'models')
     )
 
     has_nested = False
@@ -80,17 +80,17 @@ def addform(xlsform, input_dir, django_dir, template_dir,
     if has_nested:
         create_file(
             [django_dir, form_name, 'serializers.py'],
-            xls2django(xlsform, os.path.join(templates, 'serializers.py-tpl'))
+            xls2django(xlsform, 'serializers'),
         )
 
     create_file(
         [django_dir, form_name, 'rest.py'],
-        xls2django(xlsform, os.path.join(templates, 'rest.py-tpl'))
+        xls2django(xlsform, 'rest'),
     )
     if with_admin:
         create_file(
             [django_dir, form_name, 'admin.py'],
-            xls2django(xlsform, os.path.join(templates, 'admin.py-tpl'))
+            xls2django(xlsform, 'admin'),
         )
 
     template_types = set(['detail', 'edit', 'list'])
@@ -102,7 +102,7 @@ def addform(xlsform, input_dir, django_dir, template_dir,
     for tmpl in template_types:
         create_file(
             [template_dir, "%s_%s.html" % (form_name, tmpl)],
-            xls2html(xlsform, os.path.join(input_dir, '%s.html' % tmpl))
+            xls2html(xlsform, tmpl),
         )
 
 

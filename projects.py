@@ -1,6 +1,7 @@
 from wq.core import wq
 import click
 import os
+import shutil
 from django.core.management import call_command
 from pkg_resources import resource_filename
 from .info import print_versions
@@ -36,8 +37,14 @@ def start(project_name, destination):
         template=template,
         extensions=["py", "yml", "conf", "html", "sh", "js", "css", "json"],
     )
-    txt = os.path.join(destination or project_name, 'requirements.txt')
+    path = destination or project_name
+    txt = os.path.join(path, 'requirements.txt')
     print_versions(txt, [
         'wq.app',
         'wq.db',
     ])
+    shutil.copytree(
+        resource_filename('xlsconv', 'templates'),
+        os.path.join(path, 'master_templates'),
+        ignore=shutil.ignore_patterns("*.py-tpl"),
+    )
