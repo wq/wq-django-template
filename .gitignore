@@ -1,8 +1,6 @@
 *.pyc
-*.egg-info
-*.egg
-*.sw?
-build
-dist
-README.rst
-wq/
+local_settings.py
+htdocs
+lib
+themes.css
+*.appcache
