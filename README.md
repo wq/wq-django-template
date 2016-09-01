@@ -1,18 +1,7 @@
-wq.start: Project template and scaffolding tools
-================================
+ Django project template for wq framework
+=========================================
 
-`wq.start` provides the recommended Django project template for projects utilizing the [wq framework], with [wq.app] for the front end and [wq.db] as the backend component.  `wq.start` also provides commands for generating a default set of offline-capable list, detail, and edit templates.  The templates can be generated for existing Django models (via `wq maketemplates`), or both the models and the templates can be generated from an ODK-style [XLSForm](http://xlsform.org) (via `wq addform`).
-
-### Usage
-
-```sh
-pip3 install wq
-wq start <projectname> [directory]
-cd <projectname>/db
-wq addform ~/my-odk-form.xlsx
-```
-
-Se the [Getting Started] docs for more information.
+This is the recommended Django project template for projects utilizing the [wq framework], with [wq.app] for the front end and [wq.db] as the backend component.   This template is meant to be used together with [wq.start].  See the [Getting Started] docs for more information.
 
 ### Rationale
 
@@ -24,8 +13,9 @@ This project template is also useful as an example of how to build a web app wit
  * Mustache templates are kept at the top level, because they are [shared between the client and the server](http://wq.io/docs/templates).
 
 [wq framework]: http://wq.io/
-[wq.app]: http://wq.io/wq.app
-[wq.db]: http://wq.io/wq.db
+[wq.app]: https://wq.io/wq.app
+[wq.db]: https://wq.io/wq.db
+[wq.start]: https://wq.io/wq.start
 [Getting Started]: https://wq.io/docs/setup
 [RequireJS]: http://requirejs.org
 [Django REST Framework]: http://www.django-rest-framework.org
