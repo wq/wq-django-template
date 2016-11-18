@@ -4,8 +4,13 @@
 NOTE: This template is only meant to provide a bootstrap to help new projects
 get up and running with wq.  Please throw this out and replace it with your own
 interesting and unique designs, styles and layouts.  The sky is the limit!
+
+To make your application work offline using the old "application cache" standard,
+uncomment the manifest attribute below.  This is disabled by default because it
+isn't always needed and it makes debugging more tricky.
+See https://github.com/wq/wq.app/issues/63
 -->
-<html manifest="{{ project_name }}.appcache">
+<html><!-- manifest="{{ project_name }}.appcache" -->
   <head>
     <title>{{ project_name }} Project</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
