@@ -9,7 +9,7 @@ app.use(photos);
 
 config.presync = presync;
 config.postsync = postsync;
-app.init(config).then(function() {
+var ready = app.init(config).then(function() {
     app.jqmInit();
     app.prefetchAll();
 });
@@ -27,5 +27,7 @@ function postsync(items) {
     $('button.sync').html("Sync Now");
     app.syncRefresh(items);
 }
+
+return ready;
 
 });

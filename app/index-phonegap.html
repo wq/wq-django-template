@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ project_name }} Project</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes" />
+    <link rel="stylesheet" href="css/{{ project_name }}.css">
+    <script src="cordova.js"></script>
+    <script src="js/lib/require.js"></script>
+    <script>
+        function getBaseUrl() {
+            var baseurl = window.location.pathname.replace("index.html",'');
+            baseurl = baseurl.replace(/\/$/,'');
+            if (baseurl == 'www') {
+                // Windows
+                baseurl = '/www';
+            }
+            return baseurl;
+        }
+
+        require.config({
+            'config': {
+                '{{ project_name }}/config': {
+                     'router': {
+                         'base_url': getBaseUrl()
+                     },
+                     'store': {
+                         'service': 'https://{{ domain }}',
+                         'defaults': {'format': 'json'}
+                     },
+                }
+            }
+        });
+        require(['js/{{ project_name }}'], function() {
+            require(['{{ project_name }}/main', 'wq/app'], function(ready, app) {
+                ready.then(function() {
+                    app.nav('');
+                });
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <p style='text-align: center'>
+      <a href="./">
+        <img src='images/icon-512.png' style='max-width: 80%;'>
+      </a>
+    </p>
+    <p class="footer">
+      {{ project_name }} v{% templatetag openvariable %}version{% templatetag closevariable %}
+      &bull;
+      Powered by <a href="https://wq.io/">wq</a>
+    </p>
+  </body>
+</html>

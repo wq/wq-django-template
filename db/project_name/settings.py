@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 # wq: SECRET_KEY and DEBUG are defined in local_settings.py
 
-ALLOWED_HOSTS = ["{{ project_name }}"]
+ALLOWED_HOSTS = ["{{ domain }}"]
 
 
 # Application definition

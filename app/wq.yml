@@ -50,3 +50,10 @@ appcache:
          - "http://*"
          - "https://*"
     fallback: []
+
+# Compile with PhoneGap Build
+phonegap:
+   source: ../htdocs/
+   pgb_directory: ../.wq-pgb
+   config_xml: config.xml
+   index_html: index-phonegap.html
