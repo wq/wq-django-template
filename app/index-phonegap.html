@@ -33,7 +33,7 @@
         require(['js/{{ project_name }}'], function() {
             require(['{{ project_name }}/main', 'wq/app'], function(ready, app) {
                 ready.then(function() {
-                    app.nav('');
+                    app.replaceState('');
                 });
             });
         });

@@ -29,11 +29,7 @@ See https://github.com/wq/wq.app/issues/63
           hardcoded list of links (rather than the default pages list) -->
           {% verbatim %}{{#pages}}
           <li><a href="{{rt}}/{{url}}{{#list}}/{{/list}}">{{name}} {{#list}}list{{/list}}</a></li>
-          {{/pages}}
-          {{^pages}}{{#page_config.pages}}
-          <li><a href="{{rt}}/{{url}}{{#list}}/{{/list}}">{{name}} {{#list}}list{{/list}}</a></li>
-          {{/page_config.pages}}{{/pages}}
-          {% endverbatim %}
+          {{/pages}}{% endverbatim %}
         </ul>
       </div>
       <p class="footer">
