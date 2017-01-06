@@ -5,17 +5,30 @@
     version = "{% templatetag openvariable %}version{% templatetag closevariable %}" >
   <name>{{ project_name }} Project</name>
   <description>{{ project_name }} Project</description>
+{% verbatim %}
+  <platform name="android">
+    {{#android.icons}}
+    <icon src="{{filename}}" density="{{alias}}" />
+    {{/android.icons}}
+  </platform>
 
-  <platform name="android" />
-  <platform name="ios" />
+  <platform name="ios">
+    {{#ios.icons}}
+    <icon src="{{filename}}" width="{{width}}" height="{{height}}" />
+    {{/ios.icons}}
+  </platform>
+
   <platform name="windows">
     <preference name="windows-appx-target" value="uap" />
     <preference name="windows-arch" value="anycpu" />
+    {{#windows.icons}}
+    <icon src="{{filename}}" width="{{width}}" height="{{height}}" />
+    {{/windows.icons}}
   </platform>
 
   <plugin name="cordova-plugin-camera" />
   <plugin name="cordova-plugin-geolocation" />
   <plugin name="cordova-plugin-whitelist" />
   <access origin="*" />
-
+{% endverbatim %}
 </widget>

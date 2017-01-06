@@ -14,6 +14,7 @@ wq maketemplates \
 
 # Build javascript with wq.app
 cd app;
+wq icons;
 wq build $1;
 
 # Force important files through any unwanted server caching

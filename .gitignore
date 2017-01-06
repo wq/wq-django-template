@@ -5,4 +5,7 @@ htdocs
 lib
 themes.css
 *.appcache
+icon-180.png
+icon-192.png
+icon-512.png
 .wq-pgb
