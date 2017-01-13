@@ -3,5 +3,6 @@
 @import url("lib/jquery.mobile.structure.css");
 @import url("lib/leaflet.css");
 @import url("lib/leaflet.draw.css");
+@import url("lib/leaflet.markercluster.css");
 @import url("{{ project_name }}/main.css");
 @import url("{{ project_name }}/responsive.css");
