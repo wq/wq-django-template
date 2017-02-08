@@ -16,6 +16,9 @@
     {{#ios.icons}}
     <icon src="{{filename}}" width="{{width}}" height="{{height}}" />
     {{/ios.icons}}
+    {{#ios-splash.icons}}
+    <splash src="{{filename}}" width="{{width}}" height="{{height}}" />
+    {{/ios-splash.icons}}
   </platform>
 
   <platform name="windows">

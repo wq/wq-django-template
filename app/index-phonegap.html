@@ -6,38 +6,7 @@
     <link rel="stylesheet" href="css/{{ project_name }}.css">
     <script src="cordova.js"></script>
     <script src="js/lib/require.js"></script>
-    <script>
-        function getBaseUrl() {
-            var baseurl = window.location.pathname.replace("index.html",'');
-            baseurl = baseurl.replace(/\/$/,'');
-            if (baseurl == 'www') {
-                // Windows
-                baseurl = '/www';
-            }
-            return baseurl;
-        }
-
-        require.config({
-            'config': {
-                '{{ project_name }}/config': {
-                     'router': {
-                         'base_url': getBaseUrl()
-                     },
-                     'store': {
-                         'service': 'https://{{ domain }}',
-                         'defaults': {'format': 'json'}
-                     },
-                }
-            }
-        });
-        require(['js/{{ project_name }}'], function() {
-            require(['{{ project_name }}/main', 'wq/app'], function(ready, app) {
-                ready.then(function() {
-                    app.replaceState('');
-                });
-            });
-        });
-    </script>
+    <script src="js/pginit.js"></script>
   </head>
   <body>
     <p style='text-align: center'>
