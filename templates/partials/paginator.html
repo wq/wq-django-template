@@ -3,14 +3,27 @@
   {% templatetag openvariable %}#previous{% templatetag closevariable %}
   <a href="{% templatetag openvariable %}previous{% templatetag closevariable %}" data-icon="arrow-l" data-iconpos="left"
     data-direction="reverse" class="ui-btn-left">
+    {% templatetag openvariable %}^previous_is_local{% templatetag closevariable %}
     Prev {% templatetag openvariable %}per_page{% templatetag closevariable %}
+    {% templatetag openvariable %}/previous_is_local{% templatetag closevariable %}
+    {% templatetag openvariable %}#previous_is_local{% templatetag closevariable %}
+    Local Cache
+    {% templatetag openvariable %}/previous_is_local{% templatetag closevariable %}
   </a>
   {% templatetag openvariable %}/previous{% templatetag closevariable %}
-  <h3>Page {% templatetag openvariable %}page{% templatetag closevariable %} of {% templatetag openvariable %}pages{% templatetag closevariable %}</h3>
+  <h3>
+    {% templatetag openvariable %}^current_is_local{% templatetag closevariable %}Page {{page}} of {{pages}}{{/current_is_local}}
+    {% templatetag openvariable %}#current_is_local{% templatetag closevariable %}&nbsp;{{/current_is_local}}
+  </h3>
   {% templatetag openvariable %}#next{% templatetag closevariable %}
   <a href="{% templatetag openvariable %}next{% templatetag closevariable %}" data-icon="arrow-r" data-iconpos="right"
      class="ui-btn-right">
+    {% templatetag openvariable %}^current_is_local{% templatetag closevariable %}
     Next {% templatetag openvariable %}per_page{% templatetag closevariable %}
+    {% templatetag openvariable %}/current_is_local{% templatetag closevariable %}
+    {% templatetag openvariable %}#current_is_local{% templatetag closevariable %}
+    All Data
+    {% templatetag openvariable %}/current_is_local{% templatetag closevariable %}
   </a>
   {% templatetag openvariable %}/next{% templatetag closevariable %}
 </div>
