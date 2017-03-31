@@ -12,8 +12,8 @@
   </a>
   {% templatetag openvariable %}/previous{% templatetag closevariable %}
   <h3>
-    {% templatetag openvariable %}^current_is_local{% templatetag closevariable %}Page {{page}} of {{pages}}{{/current_is_local}}
-    {% templatetag openvariable %}#current_is_local{% templatetag closevariable %}&nbsp;{{/current_is_local}}
+    {% templatetag openvariable %}^current_is_local{% templatetag closevariable %}Page {% templatetag openvariable %}page{% templatetag closevariable %} of {% templatetag openvariable %}pages{% templatetag closevariable %}{% templatetag openvariable %}/current_is_local{% templatetag closevariable %}
+    {% templatetag openvariable %}#current_is_local{% templatetag closevariable %}&nbsp;{% templatetag openvariable %}/current_is_local{% templatetag closevariable %}
   </h3>
   {% templatetag openvariable %}#next{% templatetag closevariable %}
   <a href="{% templatetag openvariable %}next{% templatetag closevariable %}" data-icon="arrow-r" data-iconpos="right"
