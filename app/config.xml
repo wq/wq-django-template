@@ -48,6 +48,5 @@
     <application android:theme="@android:style/Theme.NoTitleBar" />
   </config-file>
   <preference name="ShowSplashScreenSpinner" value="false" />
-
 {% endverbatim %}
 </widget>
