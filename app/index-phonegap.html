@@ -8,16 +8,14 @@
     <script src="js/lib/require.js"></script>
     <script src="js/pginit.js"></script>
   </head>
-  <body>
-    <p style='text-align: center'>
-      <a href="./">
-        <img src='images/icon-512.png' style='max-width: 80%;'>
-      </a>
-    </p>
-    <p class="footer">
-      {{ project_name }} v{% templatetag openvariable %}version{% templatetag closevariable %}
-      &bull;
-      Powered by <a href="https://wq.io/">wq</a>
-    </p>
+  <body class="ui-mobile">
+    <div class="ui-page ui-page-active ui-page-theme-a" style="visibility:visible;">
+      <div role="banner" class="ui-header ui-bar-inherit">
+        <h1 class="ui-title" role="heading" aria-level="1">{{ project_name }} Project</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <!-- Place pre-styled inert content here to make transition to actual index more seamless -->
+      </div>
+    </div>
   </body>
 </html>
