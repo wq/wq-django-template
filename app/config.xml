@@ -12,7 +12,7 @@
     <icon src="{{filename}}" density="{{density}}" />
     {{/android.icons}}
     {{#android-splash.icons}}
-    <icon src="{{filename}}" density="{{density}}" />
+    <splash src="{{filename}}" density="{{density}}" />
     {{/android-splash.icons}}
   </platform>
 
