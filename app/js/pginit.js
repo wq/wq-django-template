@@ -27,6 +27,7 @@ document.addEventListener('deviceready', function() {
         require(['{{ project_name }}/main', 'wq/app'], function(ready, app) {
             ready.then(function() {
                 app.replaceState('');
+                setTimeout(navigator.splashscreen.hide, 10);
             });
         });
     });
