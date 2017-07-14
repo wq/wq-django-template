@@ -1,6 +1,5 @@
 .error {
     color: red;
-    clear: both;
 }
 
 .footer {
@@ -29,4 +28,7 @@
 }
 .ui-content .ui-grid-a .ui-block-b {
     padding-left: 0.5em;
+}
+.ui-field-contain p {
+    clear: both;
 }
