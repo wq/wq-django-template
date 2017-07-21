@@ -4,5 +4,6 @@
 @import url("lib/leaflet.css");
 @import url("lib/leaflet.draw.css");
 @import url("lib/leaflet.markercluster.css");
+@import url("lib/wq/app.css");
 @import url("{{ project_name }}/main.css");
 @import url("{{ project_name }}/responsive.css");
