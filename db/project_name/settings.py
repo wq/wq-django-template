@@ -64,7 +64,6 @@ from wq.db.default_settings import (
     TEMPLATES,
     SESSION_COOKIE_HTTPONLY,
     REST_FRAMEWORK,
-    SOCIAL_AUTH_PIPELINE,
 )
 TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, 'templates')]
 
@@ -72,7 +71,6 @@ TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, 'templates')]
 from wq.db.default_settings import (
     ANONYMOUS_PERMISSIONS,
     SRID,
-    DEFAULT_AUTH_GROUP,
 )
 
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
