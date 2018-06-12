@@ -16,14 +16,13 @@ http://wq.io/docs/settings
 """
 
 import os
+from os.path import dirname
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-# wq: extra dirname() to account for db/ folder
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# wq: extra dirname()s to account for db/ and settings/ folders
+BASE_DIR = dirname(dirname(dirname(dirname(os.path.abspath(__file__)))))
 
-# wq: SECRET_KEY and DEBUG are defined in local_settings.py
-
-ALLOWED_HOSTS = ["{{ domain }}"]
+# wq: SECRET_KEY, DEBUG, and ALLOWED_HOSTS are defined in dev.py/prod.py
 
 
 # Application definition
@@ -73,10 +72,7 @@ from wq.db.default_settings import (
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-# wq: DATABASES is defined in local_settings.py
+# wq: DATABASES is defined in dev.py/prod.py
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -121,13 +117,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'htdocs', 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 VERSION_TXT = os.path.join(BASE_DIR, 'version.txt')
 MEDIA_URL = '/media/'
-
-# wq: Import local settings
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
-# wq: Determine if we are running off django's testing server
-import sys
-DEBUG_WITH_RUNSERVER = 'manage.py' in sys.argv[0]

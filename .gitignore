@@ -1,5 +1,4 @@
 *.pyc
-local_settings.py
 venv
 htdocs
 lib
