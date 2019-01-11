@@ -19,10 +19,12 @@ ALLOWED_HOSTS = []
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
-        'NAME': os.path.join(BASE_DIR, 'conf', '{{ project_name }}.sqlite3'),
+        {% if with_gis %}'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+        {% else %}'ENGINE': 'django.db.backends.sqlite3',
+        # To enable GeoDjango:
+        # 'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+        {% endif %}'NAME': os.path.join(BASE_DIR, 'conf', '{{ project_name }}.sqlite3'),
     }
 }
 
-SPATIALITE_LIBRARY_PATH = 'mod_spatialite'
-
+{% if not with_gis %}# {% endif %}SPATIALITE_LIBRARY_PATH = 'mod_spatialite'

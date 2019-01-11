@@ -18,8 +18,11 @@ ALLOWED_HOSTS = ["{{ domain }}"]
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': '{{ project_name }}',
+        {% if with_gis %}'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        {% else %}'ENGINE': 'django.db.backends.postgres',
+        # To enable GeoDjango:
+        # 'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        {% endif %}'NAME': '{{ project_name }}',
         'USER': '{{ project_name }}',
         'PASSWORD': '',
         'HOST': '',
