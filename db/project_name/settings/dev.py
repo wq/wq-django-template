@@ -27,4 +27,4 @@ DATABASES = {
     }
 }
 
-{% if not with_gis %}# {% endif %}SPATIALITE_LIBRARY_PATH = 'mod_spatialite'
+{% if not with_gis %}# {% endif %}SPATIALITE_LIBRARY_PATH = 'mod_spatialite.so'
