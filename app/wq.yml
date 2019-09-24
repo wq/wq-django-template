@@ -1,4 +1,7 @@
-# Optimize with r.js
+{% if with_npm %}
+init:
+    css: public/css
+{% else %}
 optimize:
     appDir: .
     baseUrl: js/lib
@@ -11,36 +14,36 @@ optimize:
     paths:
         {{ project_name }}: "../{{ project_name }}"
         data: ../data
-
-# Generate AMD-wrapped JSON fixtures
+{% endif %}
+# Generate JSON fixtures
 collectjson:
      # Mustache Templates
      -
         paths:
              - ../templates
         type: html
-        output: js/data/templates.js
+        output: {% if with_npm %}src/tmpdata/templates.json{% else %}js/data/templates.js{% endif %}
         json:
             indent: 4
-        jsonp: define
+        {% if not with_npm %}jsonp: define{% endif %}
 
 # Compile jQuery Mobile themes from SCSS
 scss:
     indir: scss
-    outdir: css
+    outdir: {% if with_npm %}public/{% endif %}css
 
 # Update version.txt & JS module
 setversion:
     filename: ../version.txt
-    jsout: js/data/version.js
+    {% if not with_npm %}jsout: js/data/version.js {% endif %}
 
 # Generate web icons
 icons:
-    source: images/icon-1024.png
-    outdir: images/
+    source: {% if with_npm %}public/{% endif %}icon-1024.png
+    {% if with_npm %}outdir: public/{% endif %}
     filename: icon-{size}.png
     size: web
-
+{% if not with_npm %}
 # Generate Application Cache manifest
 appcache:
     name: "{{ project_name }}.appcache"
@@ -51,17 +54,16 @@ appcache:
          - css/lib/images/marker-icon.png
          - css/lib/images/marker-icon-2x.png
          - css/lib/images/marker-shadow.png
-         - images/empty.png
     network:
          - "*"
          - "http://*"
          - "https://*"
     fallback: []
-
+{% endif %}
 # Compile with PhoneGap Build
 phonegap:
-   source: ../htdocs/
+   source: {% if with_npm %}build/{% else %}../htdocs/{% endif %}
    pgb_directory: ../.wq-pgb
-   config_xml: config.xml
-   index_html: index-phonegap.html
-   icon: images/icon-1024.png
+   config_xml: pgb/config.xml
+   index_html: pgb/index-phonegap.html
+   icon: {% if with_npm %}public/{% endif %}icon-1024.png

@@ -114,6 +114,7 @@ STATIC_URL = '/static/'
 
 # wq: Configure paths for default project layout
 STATIC_ROOT = os.path.join(BASE_DIR, 'htdocs', 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media'){% if with_npm %}
+WQ_SCRIPT_FILE = os.path.join(BASE_DIR, 'htdocs', 'index.html'){% endif %}
 VERSION_TXT = os.path.join(BASE_DIR, 'version.txt')
 MEDIA_URL = '/media/'

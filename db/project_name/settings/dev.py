@@ -12,6 +12,13 @@ DEBUG = True
 # wq: Determine if we are running off django's testing server
 DEBUG_WITH_RUNSERVER = 'manage.py' in sys.argv[0]
 
+{% if with_npm %}
+if DEBUG_WITH_RUNSERVER:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'app', 'build', 'static')
+    ]
+{% endif %}
+
 ALLOWED_HOSTS = []
 
 # Database

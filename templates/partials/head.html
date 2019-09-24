@@ -1,8 +1,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes" />
 <link rel="stylesheet" href="{% templatetag openvariable %}rt{% templatetag closevariable %}/css/{{ project_name }}.css?v={% templatetag openvariable %}version{% templatetag closevariable %}">
-<link rel="icon" href="{% templatetag openvariable %}rt{% templatetag closevariable %}/images/icon-192.png?v={% templatetag openvariable %}version{% templatetag closevariable %}">
-<link rel="apple-touch-icon" href="{% templatetag openvariable %}rt{% templatetag closevariable %}/images/icon-180.png?v={% templatetag openvariable %}version{% templatetag closevariable %}">
+<link rel="icon" href="{% templatetag openvariable %}rt{% templatetag closevariable %}/icon-192.png?v={% templatetag openvariable %}version{% templatetag closevariable %}">
+<link rel="apple-touch-icon" href="{% templatetag openvariable %}rt{% templatetag closevariable %}/icon-180.png?v={% templatetag openvariable %}version{% templatetag closevariable %}">
+{% if with_npm %}
+{% templatetag openvariable %}{script_tags}{% templatetag closevariable %}
+{% else %}
 <script>
     var require = {"urlArgs": "v={% templatetag openvariable %}version{% templatetag closevariable %}"};
 </script>
 <script src="{% templatetag openvariable %}rt{% templatetag closevariable %}/js/lib/require.js" data-main="{% templatetag openvariable %}rt{% templatetag closevariable %}/js/{{ project_name }}"></script>
+{% endif %}
