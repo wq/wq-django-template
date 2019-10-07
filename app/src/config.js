@@ -4,16 +4,13 @@ import version from './data/version';
 
 var overrides = window.cordova ? (window.WQ_CONFIG || {}) : {};
 
+config.version = version;
+
 config.router = {
     'base_url': ''
 };
 
-config.template = {
-    'templates': templates,
-    'defaults': {
-        'version': version
-    }
-};
+config.template = { templates };
 
 config.store = {
     'service': config.router.base_url,

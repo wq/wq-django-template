@@ -3,15 +3,14 @@ function(config, templates, version, module) {
 
 var overrides = module.config();
 
+config.version = version;
+
 config.router = {
     'base_url': ''
 };
 
 config.template = {
     'templates': templates,
-    'defaults': {
-        'version': version
-    }
 };
 
 config.store = {

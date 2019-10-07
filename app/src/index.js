@@ -6,6 +6,13 @@ import * as serviceWorker from './serviceWorker';
 app.use(map);
 app.use(patterns);
 app.use(photos);
+app.use({
+    context() {
+        const { version } = config;
+        return { version };
+    }
+});
+
 var ready = app.init(config).then(function() {
     app.jqmInit();
     app.prefetchAll();
