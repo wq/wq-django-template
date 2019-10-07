@@ -25,8 +25,7 @@ config.map = {
 config.outbox = {};
 
 config.transitions = {
-    'default': "slide",
-    'save': "flip"
+    'default': "none"
 };
 
 for (var key in overrides) {
