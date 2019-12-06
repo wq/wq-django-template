@@ -54,8 +54,10 @@ mv -i htdocs-build/ htdocs;
 
 # Restart Django
 touch db/{{project_name}}/wsgi.py
+{% if with_pgb %}
 
 # Build PhoneGap application
 cd app;
 wq phonegap $1
 cd ../;
+{% endif %}

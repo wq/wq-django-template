@@ -60,6 +60,7 @@ appcache:
          - "https://*"
     fallback: []
 {% endif %}
+{% if with_pgb %}
 # Compile with PhoneGap Build
 phonegap:
    source: {% if with_npm %}build/{% else %}../htdocs/{% endif %}
@@ -67,3 +68,4 @@ phonegap:
    config_xml: pgb/config.xml
    index_html: pgb/index-phonegap.html
    icon: {% if with_npm %}public/{% endif %}icon-1024.png
+{% endif %}
