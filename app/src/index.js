@@ -10,6 +10,17 @@ app.use({
     context() {
         const { version } = config;
         return { version };
+    },
+    run($page) {
+        $page.find('form[data-wq-confirm]').on('submit', () => {
+            return app.confirmSubmit(this, 'Are you sure you want to delete this record?');
+        });
+        $page.find('button[data-wq-action="sync"]').on('click', () => {
+            app.retryAll();
+        });
+        $page.find('button[data-wq-action="empty-outbox"]').on('click', () => {
+            app.emptyOutbox(true);
+        });
     }
 });
 
