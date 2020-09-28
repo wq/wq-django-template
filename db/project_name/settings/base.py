@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'wq.db.rest',
-    'wq.db.rest.auth',
+    'wq.db.rest.auth',{% if not with_npm %}
+    'wq.app',{% endif %}
 
     # Project apps
 ]
@@ -61,7 +62,8 @@ from wq.db.default_settings import (
     SESSION_COOKIE_HTTPONLY,
     REST_FRAMEWORK,
 )
-TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, 'templates')]
+if TEMPLATES[0]['BACKEND'] == 'django_mustache.Mustache':
+    TEMPLATES = TEMPLATES[1:]
 
 # wq: Recommended settings unique to wq.db
 from wq.db.default_settings import (
@@ -110,11 +112,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/'{% if not with_npm %}
+STATICFILES_DIRS = [
+    ('app', os.path.join(BASE_DIR, 'app'))
+]{% endif %}
 
 # wq: Configure paths for default project layout
+PROJECT_NAME = '{{ project_name }} Project'
 STATIC_ROOT = os.path.join(BASE_DIR, 'htdocs', 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media'){% if with_npm %}
-WQ_SCRIPT_FILE = os.path.join(BASE_DIR, 'htdocs', 'index.html'){% endif %}
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+WQ_APP_TEMPLATE = os.path.join(BASE_DIR, 'htdocs', 'index.html')
 VERSION_TXT = os.path.join(BASE_DIR, 'version.txt')
 MEDIA_URL = '/media/'

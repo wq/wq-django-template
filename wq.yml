@@ -1,0 +1,24 @@
+# Update version.txt & JS module
+setversion:
+    filename: version.txt {% if with_npm %}
+    package: app/package.json{% else %}
+    esm: app/js/data/version.js{% endif %}
+
+# Generate web icons
+icons:
+    source: app/public/icon-1024.png
+    filename: app/public/icon-{size}.png
+    size: web
+{% if not with_npm %}# Generate Service Worker
+serviceworker:
+    output: ./htdocs/service-worker.js
+    timeout: 400
+    cache:
+      - /
+      - /manifest.json
+      - /favicon.ico
+      - /icon-*.png
+      - /static/app/js/*.js
+      - /static/app/js/data/*.js
+      - /static/app/css/*.css
+{% endif %}
