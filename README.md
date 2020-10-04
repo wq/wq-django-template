@@ -1,4 +1,4 @@
- Django project template for wq framework
+ Django project a Amazing template for wq framework
 =========================================
 
 This is the recommended Django project template for projects utilizing the [wq framework].  It uses [wq.app] for the front end and [wq.db] as the backend component.   This template is meant to be used together with [wq.start].  See wq's [Getting Started] docs for more information.
@@ -19,6 +19,7 @@ This project template is also useful as an example of how to build a web app wit
  * The root `ReactDOM.render()` call and Redux initialization are handled automatically by [@wq/react] and [@wq/store].  It is not necessary to explicitly define any React components, except to override the default [@wq/material] UI.
  * A default Apache2 WSGI configuration is included in `conf/`
 
+An wq refrence links are as follows
 [wq framework]: http://wq.io/
 [wq.app]: https://wq.io/wq.app
 [wq.db]: https://wq.io/wq.db
