@@ -12,11 +12,14 @@ DEBUG = True
 # wq: Determine if we are running off django's testing server
 DEBUG_WITH_RUNSERVER = 'manage.py' in sys.argv[0]
 
-{% if with_npm %}
 if DEBUG_WITH_RUNSERVER:
+{% if with_npm %}
     STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'app', 'build', 'static')
     ]
+    WQ_CONFIG_FILE = os.path.join(BASE_DIR, 'app', 'src', 'data', 'config.js')
+{% else %}
+    WQ_CONFIG_FILE = os.path.join(BASE_DIR, 'app', 'js', 'data', 'config.js')
 {% endif %}
 
 ALLOWED_HOSTS = []
