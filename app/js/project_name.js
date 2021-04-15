@@ -19,8 +19,8 @@ wq.init({
     },
     material: {
         theme: {
-            primary: '#550099',
-            secondary: '#0dccb1'
+            primary: '#7500ae',
+            secondary: '#0088bd'
         }
     },
     map: {
