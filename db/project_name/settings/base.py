@@ -118,7 +118,7 @@ STATICFILES_DIRS = [
 ]{% endif %}
 
 # wq: Configure paths for default project layout
-PROJECT_NAME = '{{ project_name }} Project'
+PROJECT_NAME = '{{ title }}'
 STATIC_ROOT = os.path.join(BASE_DIR, 'htdocs', 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 WQ_APP_TEMPLATE = os.path.join(BASE_DIR, 'htdocs', 'index.html')
