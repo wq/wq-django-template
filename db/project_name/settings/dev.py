@@ -1,5 +1,6 @@
 import os
 import sys
+import mimetypes
 from .base import *
 
 
@@ -21,6 +22,7 @@ if DEBUG_WITH_RUNSERVER:
 {% else %}
     WQ_CONFIG_FILE = os.path.join(BASE_DIR, 'app', 'js', 'data', 'config.js')
 {% endif %}
+    mimetypes.add_type("application/javascript", ".js", True)
 
 ALLOWED_HOSTS = []
 
