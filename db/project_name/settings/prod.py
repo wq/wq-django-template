@@ -14,7 +14,7 @@ ALLOWED_HOSTS = ["{{ domain }}"]
 
 
 # Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
