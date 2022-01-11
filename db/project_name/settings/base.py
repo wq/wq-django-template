@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'wq.app',{% endif %}
 
     # Project apps
+    '{{ project_name }}_survey',
 ]
 
 MIDDLEWARE = [
@@ -148,6 +149,17 @@ MEDIA_ROOT = BASE_DIR / 'media'
 WQ_APP_TEMPLATE = BASE_DIR / 'htdocs' / 'index.html'
 VERSION_TXT = BASE_DIR / 'version.txt'
 MEDIA_URL = '/media/'
+WQ_CONFIG = {
+    "material": {
+        "theme": {
+            "primary": "#7500ae",
+            "secondary": "#0088bd"
+        }
+    },
+    "map": {
+	"bounds": [[-180, -70], [180, 70]]
+    }
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
