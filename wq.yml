@@ -4,12 +4,23 @@ setversion:
     package: app/package.json{% else %}
     esm: app/js/data/version.js{% endif %}
 
+# Generate config.js
+dump_config:
+    format: esm
+    filename: app/{% if with_npm %}src{% else %}js{% endif %}/data/config.js
+
 # Generate web icons
 icons:
     source: app/public/icon-1024.png
     filename: app/public/icon-{size}.png
     size: web
-{% if not with_npm %}# Generate Service Worker
+
+# Move public files to root
+movefiles:
+    source: {% if with_npm %}app/build{% else %}htdocs/static/app/public{% endif %}/*.*
+    dest: htdocs/
+{% if not with_npm %}
+# Generate Service Worker
 serviceworker:
     output: ./htdocs/service-worker.js
     timeout: 400

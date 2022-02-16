@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'wq.db.rest',
     'wq.db.rest.auth',{% if not with_npm %}
     'wq.app',{% endif %}
+    'wq.build',
 
     # Project apps
     '{{ project_name }}_survey',
@@ -137,10 +138,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'{% if not with_npm %}
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    ('app', BASE_DIR / 'app'),
-]{% endif %}
+    {% if with_npm %}BASE_DIR / 'app' / 'build' / 'static'{% else %}('app', BASE_DIR / 'app'){% endif %},
+]
 
 # wq: Configure paths for default project layout
 PROJECT_NAME = '{{ title }}'
