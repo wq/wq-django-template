@@ -1,6 +1,6 @@
 {% if with_gis %}from django.contrib.gis.db import models
 {% else %}from django.db import models
-{% endif %}from wq.db.patterns.models import LabelModel
+{% endif %}from wq.db.rest.models import LabelModel
 from django.conf import settings
 
 
