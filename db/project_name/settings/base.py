@@ -151,6 +151,7 @@ WQ_APP_TEMPLATE = BASE_DIR / 'htdocs' / 'index.html'
 VERSION_TXT = BASE_DIR / 'version.txt'
 MEDIA_URL = '/media/'
 WQ_CONFIG = {
+    "logo": "/icon-192.png",
     "material": {
         "theme": {
             "primary": "#7500ae",
@@ -158,7 +159,7 @@ WQ_CONFIG = {
         }
     },
     "map": {
-	"bounds": [[-180, -70], [180, 70]]
+        "bounds": [[-180, -70], [180, 70]]
     }
 }
 
