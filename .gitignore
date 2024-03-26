@@ -1,7 +1,4 @@
 *.pyc
 venv
 htdocs
-icon-180.png
-icon-192.png
-icon-512.png
-conf/{{ project_name }}.sqlite3
+node_modules

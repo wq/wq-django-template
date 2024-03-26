@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'wq.db.rest',
-    'wq.db.rest.auth',{% if not with_npm %}
-    'wq.app',{% endif %}
+    'wq.db.rest.auth',
+    'wq.app',
     'wq.build',
 
     # Project apps
@@ -46,7 +46,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',{% if with_gunicorn %}
+    'whitenoise.middleware.WhiteNoiseMiddleware',{% endif %}
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -140,18 +141,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    {% if with_npm %}BASE_DIR / 'app' / 'build' / 'static'{% else %}('app', BASE_DIR / 'app'){% endif %},
+    {% if with_npm %}BASE_DIR / 'db' / '{{ project_name }}' / 'static'{% else %}('app', BASE_DIR / 'app'){% endif %},
 ]
 
 # wq: Configure paths for default project layout
 PROJECT_NAME = '{{ title }}'
-STATIC_ROOT = BASE_DIR / 'htdocs' / 'static'
+STATIC_ROOT = BASE_DIR / 'htdocs' / 'static'{% if with_gunicorn %}
+WHITENOISE_ROOT = BASE_DIR / 'htdocs'{% endif %}
 MEDIA_ROOT = BASE_DIR / 'media'
 WQ_APP_TEMPLATE = BASE_DIR / 'htdocs' / 'index.html'
 VERSION_TXT = BASE_DIR / 'version.txt'
 MEDIA_URL = '/media/'
 WQ_CONFIG = {
-    "logo": "/icon-192.png",
+    "logo": "/static/app/images/icon-192.png",
     "material": {
         "theme": {
             "primary": "#7500ae",

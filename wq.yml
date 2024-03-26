@@ -1,25 +1,25 @@
 # Update version.txt & JS module
 setversion:
     filename: version.txt {% if with_npm %}
-    package: app/package.json{% else %}
-    esm: app/js/data/version.js{% endif %}
+    package: app/package.json{% endif %}
 
 # Generate config.js
 dump_config:
-    format: esm
-    filename: app/{% if with_npm %}src{% else %}js{% endif %}/data/config.js
+    format: esm{% if with_npm %}
+    filename: db/{{ project_name }}/static/app/js/data/config.js{% else %}
+    filename: app/js/data/config.js{% endif %}
 
 # Generate web icons
 icons:
-    source: app/public/icon-1024.png
-    filename: app/public/icon-{size}.png
+    source: {% if with_npm %}db/{{ project_name }}/static/{% endif %}app/images/icon-1024.png
+    filename: {% if with_npm %}db/{{ project_name }}/static/{% endif %}app/images/icon-{size}.png
     size: web
 
 # Move public files to root
 movefiles:
-    source: {% if with_npm %}app/build{% else %}htdocs/static/app/public{% endif %}/*.*
+    source: htdocs/static/app/public/*.*
     dest: htdocs/
-{% if not with_npm %}
+
 # Generate Service Worker
 serviceworker:
     output: ./htdocs/service-worker.js
@@ -32,4 +32,5 @@ serviceworker:
       - /static/app/js/*.js
       - /static/app/js/data/*.js
       - /static/app/css/*.css
-{% endif %}
+    exclude:
+      - wq.dev.js

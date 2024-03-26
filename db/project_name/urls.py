@@ -15,17 +15,17 @@ Including another URLconf
 """
 import os
 from django.contrib import admin
-from django.urls import path
-from django.conf.urls.static import static
-from wq.db import rest
+from django.urls import path{% if not with_npm %}
 from django.conf import settings
+from django.conf.urls.static import static{% endif %}
+from wq.db import rest
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', rest.router.urls),
 ]
-
+{% if not with_npm %}
 if settings.DEBUG_WITH_RUNSERVER:
 
     # To use django-media-thumbnailer
@@ -36,4 +36,4 @@ if settings.DEBUG_WITH_RUNSERVER:
     # after building...
     urlpatterns += static(
         '/', document_root=os.path.join(settings.BASE_DIR, 'htdocs')
-    )
+    ){% endif %}
